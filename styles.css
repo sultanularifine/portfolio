@@ -1,0 +1,235 @@
+.cart-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.counter-item {
+    margin: 10px;
+}
+
+.counter-item p {
+    margin: 0;
+}
+
+.typing-container {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid orange;
+    animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: orange;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .hero {
+        text-align: center;
+    }
+
+    .text-warning {
+        display: block;
+    }
+
+    .text-success {
+        display: block;
+    }
+
+    .d-none.d-md-block {
+        display: none;
+    }
+
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .text-success,
+    .text-warning {
+        display: inline;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+
+    .d-none.d-md-block {
+        display: block;
+    }
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.counter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.counter-item {
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    max-width: 250px;
+    /* Optional: Limits the maximum width of each item */
+}
+
+.counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+@media (max-width: 767px) {
+    .card {
+        padding: 1rem;
+    }
+
+    .col-md-7,
+    .col-md-5 {
+        text-align: center;
+    }
+
+    .img-fluid {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .counter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .counter-item {
+        margin-bottom: 1rem;
+        max-width: 100%;
+        /* Ensures the counter items fit within their container */
+    }
+}
+
+@media (min-width: 768px) {
+    .counter-container {
+        flex-direction: row;
+        /* Align items in a row on larger screens */
+        align-items: flex-start;
+    }
+
+    .counter-item {
+        margin: 0 1rem;
+        /* Horizontal spacing between items */
+        flex: 1;
+        /* Allows items to grow and fill available space */
+    }
+}
+
+
+/* Glassmorphism effect for navbar */
+.navbar-nav {
+    background: rgba(212, 201, 230, 0.2);
+    /* Semi-transparent green background (adjust color as needed) */
+    backdrop-filter: blur(10px);
+    /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari */
+    border-radius: 50px;
+    /* Rounded pill shape */
+    padding: 0.5rem;
+    /* Padding inside the navbar */
+    border: 1px solid rgba(200, 205, 248, 0.3);
+    /* Light border for contrast */
+}
+
+.navbar-nav .nav-link {
+    color: #000;
+    /* Black text color */
+    transition: color 0.3s;
+    /* Smooth transition for color change */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+    /* Change text color on hover */
+}
+
+/* Optional: Padding and margin adjustments */
+.nav-item {
+    margin: 0 0.5rem;
+    /* Horizontal spacing between items */
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    /* Adjust padding for better spacing */
+}
+/* service */
+.swiper-container {
+    overflow: hidden; /* Hide any overflow */
+}
+.swiper-wrapper {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition for slide changes */
+}
+.swiper-slide {
+    flex: 1 0 auto; /* Make slides responsive */
+}
