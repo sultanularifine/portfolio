@@ -85,7 +85,7 @@
                     <div class="swiper-slide">
                         <div class="card border-primary">
                             <div class="card-body text-center">
-                                <img src="https://www.nakshtechnologies.com/wp-content/uploads/2021/09/banner-logo-design.png"
+                                <img src="logo_service.png"
                                     alt="Logo Design" class="service-icon mb-3 w-50 h-50">
                                 <h3>Logo Design</h3>
                                 <p>Creating logos that represent brands effectively.</p>
@@ -114,36 +114,36 @@
                             </div>
                         </div>
                     </div>
-                    <!-- New Card -->
+                    <!-- New Card 1 -->
                     <div class="swiper-slide">
                         <div class="card border-primary">
                             <div class="card-body text-center">
                                 <img src="grraphic.webp"
-                                    alt="Digital Marketing" class="service-icon mb-3 w-50 h-50">
+                                    alt="Graphic Design" class="service-icon mb-3 w-50 h-50">
                                 <h3>Graphic Design</h3>
                                 <p>Boosting your online presence with effective marketing strategies.</p>
                             </div>
                         </div>
                     </div>
-                    <!-- New Card -->
+                    <!-- New Card 2 -->
                     <div class="swiper-slide">
                         <div class="card border-primary">
                             <div class="card-body text-center">
                                 <img src="digital.jpg"
-                                    class="service-icon mb-3 w-50 h-50">
+                                    alt="Digital Marketing" class="service-icon mb-3 w-50 h-50">
                                 <h3>Digital Marketing</h3>
                                 <p>Boosting your online presence with effective marketing strategies.</p>
                             </div>
                         </div>
                     </div>
-                    <!-- New Card -->
+                    <!-- New Card 3 -->
                     <div class="swiper-slide">
                         <div class="card border-primary">
                             <div class="card-body text-center">
                                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKBfuyzpEBSycv7SEsOGQod7FNXBFcLhWETg&s"
-                                    alt="Digital Marketing" class="service-icon mb-3 w-50 h-50">
+                                    alt="WordPress Design" class="service-icon mb-3 w-50 h-50">
                                 <h3>WordPress Design</h3>
-                                <p>Boosting your online presence with effective marketing strategies.</p>
+                                <p>Creating responsive WordPress designs to enhance your online presence.</p>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,8 @@
             </div>
         </div>
     </section>
-
+    
+  
 
 
     <!-- About Section -->
@@ -372,43 +373,37 @@
         animateCounter('client-satisfaction', 95);
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var swiper = new Swiper('.swiper-container', {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                loop: false, // Disable looping
-                autoplay: {
-                    delay: 2000, // Slide every 2 seconds
-                    disableOnInteraction: false, // Continue autoplay after user interactions
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            loop: false,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
                 },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
                 },
-                breakpoints: {
-                    // When window width is <= 768px
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 10
-                    }
-                },
-                on: {
-                    slideChangeTransitionEnd: function () {
-                        if (swiper.isEnd) {
-                            // Move the first slide to the end when the end of the slider is reached
-                            moveFirstSlideToEnd(swiper);
-
-                        }
-                    }
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
                 }
-            });
-
-            function moveFirstSlideToEnd(swiper) {
-                const slides = swiper.slides;
-                swiper.wrapperEl.appendChild(firstSlide); // Move first slide to the end
-                swiper.update(); // Update Swiper instance
             }
         });
+    });
+
     </script>
 
 

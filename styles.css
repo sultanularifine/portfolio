@@ -222,6 +222,8 @@
     padding: 0.5rem 1rem;
     /* Adjust padding for better spacing */
 }
+
+
 /* service */
 .swiper-container {
     overflow: hidden; /* Hide any overflow */
@@ -232,4 +234,20 @@
 }
 .swiper-slide {
     flex: 1 0 auto; /* Make slides responsive */
+}
+  
+
+@media (max-width: 767px) {
+    .swiper-slide {
+        width: 100%; /* Ensure slides take full width */
+    }
+
+    .service-icon {
+        width: 100px; /* Adjust icon size */
+        height: auto;
+    }
+
+    .card {
+        margin: 0 auto; /* Center cards on smaller screens */
+    }
 }
