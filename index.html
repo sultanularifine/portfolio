@@ -245,35 +245,32 @@
                     <p>Experience details...</p>
                     <div class="container mt-4">
                         <!-- Experience Section -->
-                        <div class="container ">
+                        <div class="container">
                             <div class="row">
                                 <!-- Card 1 -->
                                 <div class="col-md-6 mb-4">
-                                    <div class="card">
+                                    <div class="card" id="card1">
                                         <div class="card-body">
                                             <h5 class="card-title">Jul 2024 – Aug 2024</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">bdCoder IT Park / Khulna</h6>
                                             <p class="card-text">
                                                 <strong>Junior Software Engineer</strong><br>
-                                                - Developed an e-commerce AI Chatbot with CRUD operations using
-                                                Ajax.<br>
-                                                - Built a tourist management system (Touran) with various admin
-                                                functionalities.
+                                                - Developed an e-commerce AI Chatbot with CRUD operations using Ajax.<br>
+                                                - Built a tourist management system (Touran) with various admin functionalities.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Card 2 -->
                                 <div class="col-md-6 mb-4">
-                                    <div class="card">
+                                    <div class="card" id="card2">
                                         <div class="card-body">
                                             <h5 class="card-title">Oct 2023 – Feb 2024</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">BetaCoders / Khulna</h6>
                                             <p class="card-text">
                                                 <strong>Web Development Intern</strong><br>
                                                 - Gained experience in frontend development, PHP, and OOP.<br>
-                                                - Worked on the Education Consultancy Management System project
-                                                (CVIEDU).
+                                                - Worked on the Education Consultancy Management System project (CVIEDU).
                                             </p>
                                         </div>
                                     </div>
@@ -465,7 +462,7 @@
         </div>
     </footer>
 
-
+    <div><dialog id="my_modal_3" class="modal w-full "><div class="modal-box p-0 w-full  bg-[#5921B5]"><form method="dialog"><button class="btn btn-circle btn-ghost bg-[#764EC3] hover:bg-[#764EC3]  absolute right-2 top-2  text-white z-20">✕</button></form><div class="p-2 w-full"><img src="https://i.ibb.co/xfPG6Nj/User-Central-Design.png" alt="" class="w-[450px] mx-auto rounded-md`"><div class="p-12 text-center"><p>Our web designs prioritize user needs and preferences user centric design.</p></div></div></div></dialog><div class="glow-container-5 glow-container" style="--gap: 32; --blur: 12; --spread: 80; --direction: row;"><article class="glow-card glow-card-5 h-fit cursor-pointer  border-[#2a2e5a] transition-all duration-300 relative bg-transparent text-gray-200 rounded-xl hover:border-transparent w-full" style="--active: 0; --start: 271.77115610754873;"><div class="glows"></div><div class="w-auto h-[250px] shadow-lg p-4 relative"><div class="flex flex-col gap-6"><h1 class="text-xl text-black font-bold">User-Centric Design</h1><p class="pText">Our web designs prioritize user needs and preferences user centric design.</p></div><button class="btn btn-primary text-white absolute bottom-10 ">Read More</button></div></article></div></div>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -531,7 +528,34 @@
         });
 
     </script>
+<script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+  
+      card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--mouse-x', `0px`);
+        card.style.setProperty('--mouse-y', `0px`);
+      });
+    });
+  </script>
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
 </body>
 
 </html>

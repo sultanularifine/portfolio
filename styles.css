@@ -426,3 +426,31 @@
         left: 10px;
     }
 }
+.card {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent; /* Initial border color */
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(133, 0, 126, 0.5), transparent 20%);
+    opacity: 0;
+}
+.card:hover::before {
+    opacity: 1;
+}
+.card-body {
+    position: relative;
+    z-index: 2;
+}a
