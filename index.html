@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
     <!-- Header Section -->
     <header class="bg-light pt-2">
         <div class="container text-center">
@@ -48,6 +49,16 @@
                 </div>
             </nav>
         </div>
+
+        <!-- sLIDER Section -->
+       <div class="container">
+        <marquee direction="left" scrollamount="7" onmouseover="this.stop()" onmouseout="this.start()">
+            <p><span
+                    style="color:rgb(0, 0, 0); font-family:segoe ui historic,segoe ui,helvetica,arial,sans-serif; font-size:15px"><strong>Website
+                        Update in Progress: We'll Be Back Soon!</strong></span></p>
+        </marquee>
+       </div>
+
         <div>
             <!-- Hero Section -->
             <div class="container mt-3">
@@ -64,12 +75,15 @@
                                 creating user-friendly and efficient web solutions. Passionate about tackling new
                                 challenges and driving innovation. Let’s connect and explore opportunities together!
                             </p>
-                            <a href="https://wa.me/8801766359998" class="btn btn-outline-primary" target="_blank">Hire Me</a>
+                            <a href="https://wa.me/8801766359998" class="btn btn-outline-primary" target="_blank">Hire
+                                Me</a>
                             <a href="SultanulArifineCV.pdf" class="btn btn-outline-secondary">Download CV</a>
-                            <a href="https://facebook.com/sultanularifine.jobayer" class="btn btn-outline-primary ml-2" target="_blank">
+                            <a href="https://facebook.com/sultanularifine.jobayer" class="btn btn-outline-primary ml-2"
+                                target="_blank">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/sultanularifine" class="btn btn-outline-primary ml-2" target="_blank">
+                            <a href="https://www.linkedin.com/in/sultanularifine" class="btn btn-outline-primary ml-2"
+                                target="_blank">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                         </div>
@@ -255,8 +269,10 @@
                                             <h6 class="card-subtitle mb-2 text-muted">bdCoder IT Park / Khulna</h6>
                                             <p class="card-text">
                                                 <strong>Junior Software Engineer</strong><br>
-                                                - Developed an e-commerce AI Chatbot with CRUD operations using Ajax.<br>
-                                                - Built a tourist management system (Touran) with various admin functionalities.
+                                                - Developed an e-commerce AI Chatbot with CRUD operations using
+                                                Ajax.<br>
+                                                - Built a tourist management system (Touran) with various admin
+                                                functionalities.
                                             </p>
                                         </div>
                                     </div>
@@ -270,7 +286,8 @@
                                             <p class="card-text">
                                                 <strong>Web Development Intern</strong><br>
                                                 - Gained experience in frontend development, PHP, and OOP.<br>
-                                                - Worked on the Education Consultancy Management System project (CVIEDU).
+                                                - Worked on the Education Consultancy Management System project
+                                                (CVIEDU).
                                             </p>
                                         </div>
                                     </div>
@@ -386,9 +403,10 @@
                 <!-- Portfolio items -->
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <iframe src="https://rehabphysiocare.com/" width="" height="500" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://rehabphysiocare.com/" width="" height="500" frameborder="0"
+                            allowfullscreen></iframe>
 
-                        
+
                         <div class="card-body">
                             <h5 class="card-title">Project Title 1</h5>
                             <p class="card-text">Brief description of the project.</p>
@@ -397,7 +415,8 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <iframe src="https://www.Ccviedu.my/" width="" height="500" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://www.Ccviedu.my/" width="" height="500" frameborder="0"
+                            allowfullscreen></iframe>
                         <div class="card-body">
                             <h5 class="card-title">Project Title 2</h5>
                             <p class="card-text">Brief description of the project.</p>
@@ -415,7 +434,8 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <iframe src="https://bdsmartunion.com/" width="" height="500" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://bdsmartunion.com/" width="" height="500" frameborder="0"
+                            allowfullscreen></iframe>
                         <div class="card-body">
                             <h5 class="card-title">Project Title 3</h5>
                             <p class="card-text">Brief description of the project.</p>
@@ -424,7 +444,8 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <iframe src="https://dynamic.edu.bd" width="" height="500" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://dynamic.edu.bd" width="" height="500" frameborder="0"
+                            allowfullscreen></iframe>
                         <div class="card-body">
                             <h5 class="card-title">Project Title 3</h5>
                             <p class="card-text">Brief description of the project.</p>
@@ -480,7 +501,7 @@
         </div>
     </footer>
 
-  
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -546,22 +567,22 @@
         });
 
     </script>
-<script>
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-  
-      card.addEventListener('mouseleave', () => {
-        card.style.setProperty('--mouse-x', `0px`);
-        card.style.setProperty('--mouse-y', `0px`);
-      });
-    });
-  </script>
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.setProperty('--mouse-x', `0px`);
+                card.style.setProperty('--mouse-y', `0px`);
+            });
+        });
+    </script>
     <script>
         document.querySelectorAll('.card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
