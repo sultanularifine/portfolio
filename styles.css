@@ -454,11 +454,3 @@
     position: relative;
     z-index: 2;
 }
-@media (max-width: 767.98px) {
-    .card {
-        border-width: 1px; /* Adjust border width for smaller screens */
-    }
-    .card::before {
-        background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 123, 255, 0.5), transparent 70%);
-    }
-}
