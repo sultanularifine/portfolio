@@ -316,10 +316,10 @@
     padding: 20px;
 }
 .flip-card-front {
-    background-color: #140652;
+    background-color: #5f035a;
 }
 .flip-card-back {
-    background-color: #800280;
+    background-color: #0c0264;
     transform: rotateY(180deg);
 }
 
