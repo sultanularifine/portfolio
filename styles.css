@@ -316,10 +316,10 @@
     padding: 20px;
 }
 .flip-card-front {
-    background-color: #5f035a;
+    background-color: #15008d;
 }
 .flip-card-back {
-    background-color: #0c0264;
+    background-color: #9c05d8;
     transform: rotateY(180deg);
 }
 
@@ -444,7 +444,7 @@
     border-radius: 8px;
     pointer-events: none;
     transition: border-color 0.3s ease;
-    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(133, 0, 126, 0.5), transparent 20%);
+    background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(0, 16, 247, 0.822), transparent 20%);
     opacity: 0;
 }
 .card:hover::before {
@@ -453,4 +453,28 @@
 .card-body {
     position: relative;
     z-index: 2;
+}
+
+.testimonial-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.testimonial-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.testimonial-content {
+    padding-left: 15px;
+}
+.testimonial-content h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.testimonial-content p {
+    font-size: 1rem;
+    color: #6c757d;
 }
