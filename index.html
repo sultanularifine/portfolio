@@ -637,7 +637,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
+    <section id="contact" class="py-2 bg-light">
         <div class="container">
             <div class="row">
                 <!-- Contact Form -->
@@ -697,8 +697,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-light pt-3 py-2">
-        <div class="container">
+    <footer class="bg-light  pt-3 py-2">
+        <div class="container ">
             <div class="row">
                 <div class="col-12 text-center">
                     <p class="mb-0">© 2024 Sultanul Arifine. All rights reserved.</p>
@@ -706,7 +706,9 @@
             </div>
         </div>
     </footer>
-
+    <a href="#" class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -816,6 +818,24 @@
 
                 card.style.setProperty('--mouse-x', `${x}px`);
                 card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Show or hide the button depending on scroll position
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('#scrollToTop').fadeIn();
+                } else {
+                    $('#scrollToTop').fadeOut();
+                }
+            });
+    
+            // Scroll to top on button click
+            $('#scrollToTop').click(function (e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: 0}, 800);
             });
         });
     </script>
