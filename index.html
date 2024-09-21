@@ -11,52 +11,55 @@
     <link rel="stylesheet" href="styles.css"> <!-- Link to your custom styles -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
 <body>
 
+    <!-- Navbar -->
+    <div class="sticky-top text-center ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <img src="logo.png" alt="" class="icon-size ">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials">Testimonials</a>
+                        </li>
+                       
+                    </ul>
+
+                </div>
+                <a href="#contact" class="btn btn-primary d-none d-lg-block">Get Started</a>
+            </div>
+        </nav>
+    </div>
+
     <!-- Header Section -->
     <header class="bg-light pt-2">
-        <div class="container text-center">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <img src="logo.png" alt="" class="w-25 h-25 ">
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#portfolio">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#services">Services</a>
-                            </li>
-                        </ul>
-
-                    </div>
-                    <a href="#contact" class="btn btn-primary d-none d-lg-block">Get Started</a>
-                </div>
-            </nav>
-        </div>
-
         <!-- sLIDER Section -->
         <div class="container">
             <marquee direction="left" scrollamount="7" onmouseover="this.stop()" onmouseout="this.start()">
                 <p><span
-                        style="color:rgb(255, 0, 0); font-family:segoe ui historic,segoe ui,helvetica,arial,sans-serif; font-size:15px"><strong>Website
-                            Update in Progress: We'll Be Back Soon!</strong></span></p>
-            </marquee>
+                        style="color:rgb(255, 0, 0); font-family:segoe ui historic,segoe ui,helvetica,arial,sans-serif; font-size:15px"><strong>WebsiteThis website is currently under construction. We'll be back soon!</strong></span></p> </marquee>
         </div>
 
         <div>
@@ -75,24 +78,33 @@
                                 creating user-friendly and efficient web solutions. Passionate about tackling new
                                 challenges and driving innovation. Let’s connect and explore opportunities together!
                             </p>
-                            <a href="https://wa.me/8801766359998" class="btn btn-outline-primary" target="_blank">Hire
-                                Me</a>
-                            <a href="SultanulArifineCV.pdf" class="btn btn-outline-secondary">Download CV</a>
-                            <a href="https://facebook.com/sultanularifine.jobayer" class="btn btn-outline-primary ml-2"
-                                target="_blank">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/sultanularifine" class="btn btn-outline-primary ml-2"
-                                target="_blank">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/sultanularifine" class="btn btn-outline-dark ml-2"
-                                target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://wa.me/01766359998" class="btn btn-outline-success ml-2" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
+                            <div class="d-flex flex-column flex-md-row">
+                                <div class="d-flex">
+                                    <a href="https://wa.me/8801766359998"
+                                        class="btn btn-outline-primary button-and-icon" target="_blank">Hire Me</a>
+                                    <a href="SultanulArifineCV.pdf" class="btn btn-outline-secondary button-and-icon"
+                                        target="_blank">Download CV</a>
+                                </div>
+                                <div class="d-flex ">
+                                    <a href="https://facebook.com/sultanularifine.jobayer"
+                                        class="btn btn-outline-primary button-and-icon" target="_blank">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/sultanularifine"
+                                        class="btn btn-outline-primary button-and-icon " target="_blank">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="https://github.com/sultanularifine"
+                                        class="btn btn-outline-dark button-and-icon" target="_blank">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://wa.me/01766359998" class="btn btn-outline-success button-and-icon"
+                                        target="_blank">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="d-none d-md-block col-md-6 text-center text-md-end">
@@ -106,7 +118,7 @@
     <!-- Services Section -->
     <section id="services" class="pt-5 bg-light">
         <div class="container text-center">
-            <h2>My Services</h2>
+            <h2>Services</h2>
             <div class="swiper-container pt-3 py-5">
                 <div class="swiper-wrapper">
                     <!-- Card 1 -->
@@ -194,11 +206,16 @@
 
                     <div class="container ">
                         <div class="row align-items-center">
-                            <div class="card p-5">
+                            <div class="card p-5 border-primary">
                                 <div class="row align-items-center">
+                                    <!-- Right Side (Image) for Mobile First -->
+                                    <div class="col-md-5 text-center order-md-2 mb-4 mb-md-0">
+                                        <img src="arifine.png" alt="Arifine" class="img-fluid rounded-circle w-75">
+                                    </div>
                                     <!-- Left Side (Text) -->
-                                    <div class="col-md-7 mb-4 mb-md-0">
-                                        <p>Hey, I’m Sultanul Arifine, a web developer with a passion for creating
+                                    <div class="col-md-7 order-md-1">
+                                        <p class="about-text">Hey, I’m Sultanul Arifine, a web developer with a passion
+                                            for creating
                                             dynamic and engaging web experiences. With a strong foundation in various
                                             web technologies and frameworks, I specialize in designing and developing
                                             user-friendly websites and applications. My expertise includes working with
@@ -207,37 +224,35 @@
                                             explore new challenges and contribute to innovative projects. Let's connect
                                             and collaborate on making great web solutions!</p>
                                     </div>
-                                    <!-- Right Side (Image) -->
-                                    <div class="col-md-5 text-center">
-                                        <img src="arifine.png" alt="Arifine" class="img-fluid rounded-circle w-75">
-                                    </div>
                                 </div>
 
-                                <!-- Bottom Section -->
                                 <div class="counter-container mt-4">
                                     <div class="row text-center">
                                         <div class="col-12 col-md-4 mb-3 mb-md-0">
                                             <div class="counter-item">
                                                 <div class="counter" id="years-experience">0</div>
+                                                <span class="plus">+</span>
                                                 <p>Years Experience</p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4 mb-3 mb-md-0">
                                             <div class="counter-item">
                                                 <div class="counter" id="project-count">0</div>
+                                                <span class="plus">+</span>
                                                 <p>Projects Completed</p>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">
                                             <div class="counter-item">
                                                 <div class="counter" id="client-satisfaction">0</div>
-                                                <p>Client Satisfaction (%)</p>
+                                                <span class="plus">+</span>
+                                                <p>Client Satisfaction</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
+
                         </div>
                     </div>
 
@@ -273,7 +288,7 @@
                             <div class="row">
                                 <!-- Card 1 -->
                                 <div class="col-md-6 mb-4">
-                                    <div class="card" id="card1">
+                                    <div class="card border-primary" id="card1">
                                         <div class="card-body">
                                             <h5 class="card-title">Jul 2024 – Aug 2024</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">bdCoder IT Park / Khulna</h6>
@@ -289,7 +304,7 @@
                                 </div>
                                 <!-- Card 2 -->
                                 <div class="col-md-6 mb-4">
-                                    <div class="card" id="card2">
+                                    <div class="card border-primary" id="card2">
                                         <div class="card-body">
                                             <h5 class="card-title">Oct 2023 – Feb 2024</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">BetaCoders / Khulna</h6>
@@ -357,7 +372,7 @@
                             <div class="row mt-4">
                                 <!-- Education Card 1 -->
                                 <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card custom-card">
+                                    <div class="card custom-card border-primary">
                                         <div class="card-body">
                                             <h5 class="card-title">Bachelor of Science</h5>
                                             <h6 class="card-subtitle mb-2 text-muted">Computer Science and Engineering
@@ -371,9 +386,10 @@
                                 </div>
                                 <!-- Education Card 2 -->
                                 <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card custom-card">
+                                    <div class="card custom-card border-primary">
                                         <div class="card-body">
-                                            <h5 class="card-title">Science</h5>
+                                            <h5 class="card-title">HSC</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Science</h6>
                                             <h6 class="card-subtitle mb-2 text-muted">Barobazer Degree College</h6>
                                             <p class="card-text">
                                                 2016 - 2019
@@ -383,9 +399,10 @@
                                 </div>
                                 <!-- Education Card 3 -->
                                 <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card custom-card">
+                                    <div class="card custom-card border-primary">
                                         <div class="card-body">
-                                            <h5 class="card-title">Science</h5>
+                                            <h5 class="card-title">SSC</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted">Science</h6>
                                             <h6 class="card-subtitle mb-2 text-muted">Hat Barobazar High School</h6>
                                             <p class="card-text">
                                                 2011 - 2016
@@ -406,165 +423,289 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="pt-4 bg-light">
+    <section id="portfolio" class="pt-5">
         <div class="container text-center">
             <h2>My Portfolio</h2>
-            <div class="row mt-4">
-                <!-- Portfolio items -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <iframe src="https://rehabphysiocare.com/" width="" height="500" frameborder="0"
-                            allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">Project Title 1</h5>
-                            <p class="card-text">Brief description of the project.</p>
+            <!-- Tabs -->
+            <ul class="nav nav-pills justify-content-center mt-4">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#web-development" data-toggle="tab">Web Development</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#wordpress" data-toggle="tab">WordPress</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#grphic" data-toggle="tab">Graphic Ddesign</a>
+                </li>
+            </ul>
+            <!-- Tab Content -->
+            <div class="tab-content mt-4">
+                <div class="tab-pane fade show active" id="web-development">
+                    <p>All Work...</p>
+                    <div class="row mt-4">
+                        <!-- Portfolio items -->
+                        <div class="col-md-4 mb-4 ">
+                            <div class="card border-primary">
+                                <iframe src="https://rehabphysiocare.com/" width="" height="500" frameborder="0"
+                                    allowfullscreen></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title">Project Title 1</h5>
+                                    <p class="card-text">Brief description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-primary">
+                                <iframe src="https://www.Ccviedu.my/" width="" height="500" frameborder="0"
+                                    allowfullscreen></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title">Project Title 2</h5>
+                                    <p class="card-text">Brief description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-primary">
+                                <iframe src="https://psdibd.com" width="" height="500" frameborder="0"
+                                    allowfullscreen></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title">Project Title 3</h5>
+                                    <p class="card-text">Brief description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-primary">
+                                <iframe src="https://bdsmartunion.com/" width="" height="500" frameborder="0"
+                                    allowfullscreen></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title">Project Title 3</h5>
+                                    <p class="card-text">Brief description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-primary">
+                                <iframe src="https://sultanularifine.github.io/Medicine-E-Commerce-Website/" width=""
+                                    height="500" frameborder="0" allowfullscreen></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title">Project Title 3</h5>
+                                    <p class="card-text">Brief description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-primary">
+                                <iframe src="https://dynamic.edu.bd" width="" height="500" frameborder="0"
+                                    allowfullscreen></iframe>
+                                <div class="card-body">
+                                    <h5 class="card-title">Project Title 3</h5>
+                                    <p class="card-text">Brief description of the project.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <iframe src="https://www.Ccviedu.my/" width="" height="500" frameborder="0"
-                            allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">Project Title 2</h5>
-                            <p class="card-text">Brief description of the project.</p>
+                <div class="tab-pane fade" id="wordpress">
+                    <p> learn more about my work...</p>
+                    <section id="education" class="">
+                        <div class="container text-center">
+                            <div class="row mt-4">
+
+
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <iframe src="https://psdibd.com" width="" height="500" frameborder="0" allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">Project Title 3</h5>
-                            <p class="card-text">Brief description of the project.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <iframe src="https://bdsmartunion.com/" width="" height="500" frameborder="0"
-                            allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">Project Title 3</h5>
-                            <p class="card-text">Brief description of the project.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <iframe src="https://sultanularifine.github.io/Medicine-E-Commerce-Website/" width=""
-                            height="500" frameborder="0" allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">Project Title 3</h5>
-                            <p class="card-text">Brief description of the project.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <iframe src="https://dynamic.edu.bd" width="" height="500" frameborder="0"
-                            allowfullscreen></iframe>
-                        <div class="card-body">
-                            <h5 class="card-title">Project Title 3</h5>
-                            <p class="card-text">Brief description of the project.</p>
-                        </div>
-                    </div>
+                <div class="tab-pane fade pb-5" id="grphic">
+                    <p> learn more about my work.</p>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">What Our Clients Say</h2>
-            <div class="row">
-                <!-- Testimonial 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="testimonial-card d-flex align-items-start">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
-                            alt="Client 1" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <h5>John Doe</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-                                libero. Sed cursus ante dapibus diam.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="testimonial-card d-flex align-items-start">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
-                            alt="Client 2" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <h5>Jane Smith</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-                                libero. Sed cursus ante dapibus diam.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="testimonial-card d-flex align-items-start">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
-                            alt="Client 3" class="testimonial-image">
-                        <div class="testimonial-content">
-                            <h5>Emily Johnson</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent
-                                libero. Sed cursus ante dapibus diam.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Contact Form Section -->
-    <section id="contact" class="py-5">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="pt-5 bg-light">
         <div class="container text-center">
-            <h2>Let's Work Together!</h2>
-            <form class="mt-4">
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" placeholder="Your Full Name" required>
+            <h2>Testimonials</h2>
+            <div class="swiper-container pt-3 py-5">
+                <div class="swiper-wrapper">
+                    <!-- Card 1 -->
+                    <div class="swiper-slide">
+                        <div class="card border-primary text-start">
+                            <div class=" d-flex align-items-start ">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
+                                    alt="Client 1" class="testimonial-image">
+                                <div class="testimonial-content">
+                                    <h5>John Doe</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                                        Praesent
+                                        libero. Sed cursus ante dapibus diam.</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="email" class="form-control" placeholder="Your Email Address" required>
+                    <div class="swiper-slide">
+                        <div class="card border-primary text-start">
+                            <div class=" d-flex align-items-start">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
+                                    alt="Client 1" class="testimonial-image">
+                                <div class="testimonial-content ">
+                                    <h5>John Doe</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                                        Praesent
+                                        libero. Sed cursus ante dapibus diam.</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                    <!-- Card 2 -->
+                    <div class="swiper-slide">
+                        <div class="card border-primary text-start">
+                            <div class=" d-flex align-items-start">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
+                                    alt="Client 1" class="testimonial-image">
+                                <div class="testimonial-content ">
+                                    <h5>John Doe</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                                        Praesent
+                                        libero. Sed cursus ante dapibus diam.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="swiper-slide">
+                        <div class="card border-primary text-start">
+                            <div class=" d-flex align-items-start">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
+                                    alt="Client 1" class="testimonial-image">
+                                <div class="testimonial-content ">
+                                    <h5>John Doe</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                                        Praesent
+                                        libero. Sed cursus ante dapibus diam.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- New Card 1 -->
+                    <div class="swiper-slide">
+                        <div class="card border-primary text-start">
+                            <div class=" d-flex align-items-start">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
+                                    alt="Client 1" class="testimonial-image">
+                                <div class="testimonial-content ">
+                                    <h5>John Doe</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                                        Praesent
+                                        libero. Sed cursus ante dapibus diam.</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- New Card 3 -->
+                    <div class="swiper-slide">
+                        <div class="card border-primary text-start"> <!-- Added text-center class -->
+                            <div class="d-flex align-items-start">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg"
+                                    alt="Client 1" class="testimonial-image mx-auto">
+
+                                <div class="testimonial-content w-100 ">
+
+                                    <h5>John Doe</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
+                                        Praesent libero. Sed cursus
+                                        ante dapibus diam.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" placeholder="Your Phone Number" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <input type="text" class="form-control" placeholder="Your Budget">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mb-3">
-                        <textarea class="form-control" placeholder="Write Your Message Here..." rows="4"
-                            required></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-success">Send Message</button>
-            </form>
+                <!-- Add Pagination (optional) -->
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Form -->
+                <h2 class="text-center mb-4">Let's Work Together!</h2>
+                <div class="col-md-8 mb-4">
+
+                    <div class="card shadow glassmorphism border-primary">
+                        <form class="p-4">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control border-primary" placeholder="Your Full Name"
+                                        required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control border-primary"
+                                        placeholder="Your Email Address" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control border-primary"
+                                        placeholder="Your Phone Number" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control border-primary" placeholder="Your Budget">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control border-primary"
+                                        placeholder="Write Your Message Here..." rows="4" required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Contact Info with Glassmorphism -->
+                <div class="col-md-4 mb-4">
+
+                    <div class="card-body card shadow bg-contact glassmorphism border-primary">
+                        <h4 class="pb-3">Contact Information</h4>
+                        <p class="border-primary glassmorphism "><i class="fas fa-envelope "></i>
+                            <strong>Email:</strong> sultanularifine@gmai.com
+                        </p>
+                        <p class="border-primary glassmorphism"><i class="fas fa-phone "></i> <strong>Phone:</strong>
+                            +880 1766 359 998</p>
+                        <p class="border-primary glassmorphism"><i class="fas fa-map-marker-alt "></i>
+                            <strong>Address:</strong> Barobazer, Kaligonj, Jhenaidah
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-light pt-4">
+    <footer class="bg-light pt-3 py-2">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center ">
-                    <p>© 2024 Sultanul Arifine. All rights reserved.</p>
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2024 Sultanul Arifine. All rights reserved.</p>
                 </div>
-
             </div>
         </div>
     </footer>
-
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -596,10 +737,29 @@
             }, stepTime);
         }
 
-        // Animate counters
-        animateCounter('years-experience', 2);
-        animateCounter('project-count', 12);
-        animateCounter('client-satisfaction', 95);
+        // Intersection Observer for scroll detection
+        const counters = [
+            { id: 'years-experience', value: 2 },
+            { id: 'project-count', value: 12 },
+            { id: 'client-satisfaction', value: 95 },
+        ];
+
+        let hasAnimated = false;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    hasAnimated = true;
+                    counters.forEach(counter => {
+                        animateCounter(counter.id, counter.value);
+                    });
+                }
+            });
+        });
+
+        // Observe the counter container
+        observer.observe(document.querySelector('.counter-container'));
+
     </script>
     <script>
 
