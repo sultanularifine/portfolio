@@ -236,9 +236,16 @@
     
 }
 
-.icon-size{
+.logo-size {
     width: 150px;
     height: 30px;
+}
+
+@media (max-width: 768px) { /* Adjust the width as needed */
+    .logo-size {
+        width: 100px; /* New width for mobile */
+        height: auto; /* Maintain aspect ratio */
+    }
 }
 /* service */
 .swiper-container {
