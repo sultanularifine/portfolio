@@ -8,7 +8,9 @@
     font-weight: bold;
     color: #007bff;
 }
-
+.custom1-card {
+    min-height: 250px; /* Adjust as needed */
+}
 .counter-container {
     display: flex;
     justify-content: space-around;
