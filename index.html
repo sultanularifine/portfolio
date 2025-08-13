@@ -2,996 +2,592 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sultanul Arifine</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom styles -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glassmorphism 3D Carousel</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
 </head>
 
 <body>
+    <section>
+        <div class="body-nav">
+            <nav>
+                <div class="logo">Logo</div>
 
-    <!-- Navbar -->
-    <div class="sticky-top text-center ">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <img src="logo.png" alt="" class="logo-size ">
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center " id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#services">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills">Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-
-                    </ul>
-
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
                 </div>
-                <a href="https://wa.me/+8801766359998" class="btn btn-primary d-none d-lg-block">Hire Me</a>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Header Section -->
-    <header class="bg-light pt-2">
-        <!-- sLIDER Section -->
-        <div class="container">
+                <ul id="navList">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Skills</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="container"
+            style=" background: radial-gradient(circle at center, #0a0c1f 0%, #050613 100%); padding-top:90px;">
             <marquee direction="left" scrollamount="7" onmouseover="this.stop()" onmouseout="this.start()">
                 <p><span
-                        style="color:rgb(255, 0, 0); font-family:segoe ui historic,segoe ui,helvetica,arial,sans-serif; font-size:15px"><strong>Website
+                        style="color:rgb(255, 255, 255); font-family:segoe ui historic,segoe ui,helvetica,arial,sans-serif; font-size:15px"><strong>Website
                             maintenance is in progress. We'll be back soon!</strong></span></p>
             </marquee>
         </div>
-        <!-- Hero Section -->
-        <div>
-            <div class="container mt-3">
-                <div class="row align-items-center">
-                    <div class="col-12 col-md-6">
-                        <div class="hero mb-4 mb-md-0">
-                            <h1 class="text-uppercase fw-bold">
-                                <span class="typing-container">
-                                    Hi, I'm Sultanul Arifine!</span><br>
-                                <div class="text-slider">
-                                    <p class="text-success">CEO <span class="text-black">at</span> <span
-                                            class="text-warning">Requin BD</span></p>
-                                    <p class="text-success">Web <span class="text-warning">Developer</span></p>
-                                    <p class="text-success">Graphic <span class="text-warning">Designer</span></p>
-                                </div>
-                            </h1>
-                            <p class="col-md-12 about-text">I am a passionate backend developer specializing in building
-                                scalable, high-performance web applications. With expertise in Laravel and backend
-                                technologies, I craft efficient APIs, optimize databases, and enhance system security.
-                                My focus is on writing clean, maintainable code that powers seamless user experiences.
-                                Always eager to solve complex problems and explore new technologies, I thrive on
-                                innovation and collaboration. Let’s connect and build something amazing together!
-                            </p>
-                            <div class="d-flex flex-column flex-md-row">
-                                <div class="d-flex">
-                                    <a href="https://wa.me/8801766359998"
-                                        class="btn btn-outline-primary button-and-icon" target="_blank">Hire Me</a>
-                                    <a href="SultanulArifineCV.pdf" class="btn btn-outline-secondary button-and-icon"
-                                        target="_blank">Download CV</a>
-                                </div>
-                                <div class="d-flex ">
-                                    <a href="https://www.facebook.com/sultanularifine.official"
-                                        class="btn btn-outline-primary button-and-icon" target="_blank">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="https://www.linkedin.com/in/sultanularifine"
-                                        class="btn btn-outline-primary button-and-icon " target="_blank">
-                                        <i class="fab fa-linkedin-in"></i>
-                                    </a>
-                                    <a href="https://github.com/sultanularifine"
-                                        class="btn btn-outline-dark button-and-icon" target="_blank">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://wa.me/+8801766359998"
-                                        class="btn btn-outline-success button-and-icon" target="_blank">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="d-none d-md-block col-md-6 text-center text-md-end">
-                        <img src="arifine.png" alt="Arifine" class="img-fluid rounded-circle w-75">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Services Section -->
-    <section id="services" class="pt-5 bg-light">
-        <div class="container text-center">
-            <h2>Services</h2>
-            <div id="serviceCarousel" class="carousel slide py-5" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <!-- First Slide -->
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-4 col-12 d-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <img src="https://cdn.pixabay.com/photo/2024/05/02/09/16/web-development-8734249_1280.png"
-                                            alt="Website Design" class="service-icon mb-3 w-50 h-50">
-                                        <h3>Web Development</h3>
-                                        <p>Designing user-friendly websites with a focus on usability.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-none d-md-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <img src="https://img.freepik.com/free-vector/ui-ux-designers-isometric-composition-with-small-people-creating-custom-design-web-site-3d-vector-illustration_1284-68939.jpg"
-                                            alt="Web Design" class="service-icon mb-3 w-50 h-50">
-                                        <h3>Web Design</h3>
-                                        <p>Designing user-friendly websites with a focus on usability.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-none d-md-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe0exHZIEnWf2eQxfPM_VEORLn4sNoNWwKc4EAfF4ow_RPTEGwUsBQCr9JAsbyywAuPBM&usqp=CAU"
-                                            alt="WordPress Design" class="service-icon mb-3 w-50 h-50">
-                                        <h3>WordPress Design</h3>
-                                        <p>Creating responsive WordPress designs.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Second Slide -->
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-4 col-12 d-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFIao_xyeLGRBF_1QKC296uRrIil7bFdmlBw&s"
-                                            alt="UI/UX Design" class="service-icon mb-3 w-50 h-50">
-                                        <h3>UI/UX Design</h3>
-                                        <p>Enhancing user experiences with intuitive UI/UX design.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-none d-md-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <img src="grraphic.webp" alt="Graphic Design"
-                                            class="service-icon mb-3 w-50 h-50">
-                                        <h3>Graphic Design</h3>
-                                        <p>Boosting your online presence with effective marketing strategies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 d-none d-md-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <img src="digital.jpg" alt="Digital Marketing"
-                                            class="service-icon mb-3 w-50 h-50">
-                                        <h3>Digital Marketing</h3>
-                                        <p>Boosting your online presence with effective marketing strategies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Carousel Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#serviceCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-            </div>
-        </div>
     </section>
 
+  <section class="hero body-hero">
+    <div class="hero-left">
+      <p class="welcome">Welcome to my portfolio!</p>
+      <h1>Hello, my  name’s<br> <span class="highlight">Sultanil Arifine.</span></h1>
+      <p class="desc">
+        I'm a web developwe from Bangladesh. <br>
+        Currently working with <span class="mention">@Requin BD</span> as a CEO.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn primary">Hire Me</a>
+        <a href="#" class="btn secondary">See my work</a>
+      </div>
+    </div>
 
-    <!-- About Section -->
-    <section id="about" class="pt-5">
-        <div class="container ">
-            <div class="text-center">
-                <h2>About Me</h2>
-                <p>Crafting stories through design and innovation.</p>
-            </div>
-            <div class="container ">
-                <div class="row align-items-center">
-
-                    <div class="container ">
-                        <div class="row align-items-center">
-                            <div class="card p-5 border-primary">
-                                <div class="row align-items-center">
-                                    <!-- Right Side (Image) for Mobile First -->
-                                    <div class="col-md-5 text-center order-md-2 mb-4 mb-md-0">
-                                        <img src="arifine.png" alt="Arifine" class="img-fluid rounded-circle w-75">
-                                    </div>
-                                    <!-- Left Side (Text) -->
-                                    <div class="col-md-7 order-md-1">
-                                        <p class="about-text">Hi, I'm Sultanul Arifine, a passionate Web Developer, and
-                                            Graphic Designer, and the CEO of Requin BD, based in Khulna, Bangladesh.
-
-                                            With a BSc in Computer Science and Engineering, I specialize in Laravel and
-                                            backend development, crafting robust, scalable web solutions while
-                                            seamlessly integrating intuitive frontend technologies for an enhanced user
-                                            experience.
-
-                                            Beyond coding, my expertise in graphic design allows me to create visually
-                                            compelling designs that elevate branding and user engagement. Whether it’s
-                                            developing dynamic applications, designing captivating visuals, or solving
-                                            complex technical challenges, I thrive on innovation, creativity, and
-                                            problem-solving.
-
-                                            Let's connect and collaborate to build something extraordinary! </p>
-                                    </div>
-                                </div>
-
-                                <div class="counter-container mt-4">
-                                    <div class="row text-center">
-                                        <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                            <div class="counter-item">
-                                                <div class="counter" id="years-experience">0</div>
-                                                <span class="plus">+</span>
-                                                <p>Years Experience</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 mb-3 mb-md-0">
-                                            <div class="counter-item">
-                                                <div class="counter" id="project-count">0</div>
-                                                <span class="plus">+</span>
-                                                <p>Projects Completed</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4">
-                                            <div class="counter-item">
-                                                <div class="counter" id="client-satisfaction">0</div>
-                                                <span class="plus">+</span>
-                                                <p>Client Satisfaction</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="pt-5">
-        <div class="container text-center">
-            <h2>My Skills</h2>
-            <!-- Tabs -->
-            <ul class="nav nav-pills justify-content-center mt-4">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#experience" data-toggle="tab">Experience</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#education" data-toggle="tab">Education</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#download" data-toggle="tab">Download CV</a>
-                </li>
-            </ul>
-            <!-- Tab Content -->
-            <div class="tab-content mt-4">
-                <div class="tab-pane fade show active" id="experience">
-                    <p>Experience details...</p>
-                    <div class="container mt-4">
-                        <!-- Experience Section -->
-                        <div class="container">
-                            <div class="row">
-                                <!-- Card 1 -->
-                                <div class="col-md-12 mb-4">
-                                    <div class="card border-primary" id="card3">
-                                        <div class="card-body text-start">
-                                            <h5 class="card-title">Dec 2024 – Jan 2025</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">SoftHost IT / Dhaka (Remote)</h6>
-                                            <p class="card-text">
-                                                <strong>Web Developer</strong><br>
-                                                - Worked on multiple web development projects, including:<br>
-                                                - <a href="https://jewelstorebd.com/" target="_blank">Jewel Store
-                                                    BD</a>
-                                                - <a href="https://erp.bsoftbd.com/" target="_blank">ERP System</a>
-                                                - <a href="https://bfh.hostzonebd.com/" target="_blank">BFH
-                                                    HostZone</a>
-                                                - <a href="https://sarabeladistribution.com/" target="_blank">Sarabela
-                                                    Distribution</a>
-                                                - <a href="https://11megasupermarket.com/" target="_blank">11 Mega
-                                                    Supermarket</a>
-                                                - <a href="https://motiartraders.com/" target="_blank">Motiar
-                                                    Traders</a>
-                                                - <a href="https://sbsslkhulna.com/" target="_blank">SBSSL
-                                                    Khulna</a><br>
-                                                - <a href="https://mkb.bsoftbd.com/" target="_blank">MKB BsoftBD</a><br>
-                                                - Developed and optimized user-friendly interfaces.<br>
-                                                - Implemented backend functionalities to enhance system performance.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 2 -->
-                                <div class="col-md-6 mb-4">
-                                    <div class="card border-primary" id="card1">
-                                        <div class="card-body text-start">
-                                            <h5 class="card-title">Jul 2024 – Aug 2024</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">bdCoder IT Park / Khulna</h6>
-                                            <p class="card-text">
-                                                <strong>Junior Software Engineer</strong><br>
-                                                - Developed an e-commerce AI Chatbot with CRUD operations using
-                                                Ajax.<br>
-                                                - Built a tourist management system (Touran) with various admin
-                                                functionalities.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card 3 -->
-                                <div class="col-md-6 mb-4">
-                                    <div class="card border-primary" id="card2">
-                                        <div class="card-body text-start">
-                                            <h5 class="card-title">Oct 2023 – Feb 2024</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">BetaCoders / Khulna</h6>
-                                            <p class="card-text">
-                                                <strong>Web Development Intern</strong><br>
-                                                - Gained experience in frontend development, PHP, and OOP.<br>
-                                                - Worked on the Education Consultancy Management System project
-                                                (CVIEDU).
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Add more cards as needed -->
-                            </div>
-                        </div>
-                        <!-- Skills Section -->
-                        <div class="mt-3">
-                            <h2 class="text-center ">Skills</h2>
-                            <div class="d-flex flex-wrap justify-content-center">
-                                <!-- Skill Card 1 -->
-                                <div class="flip-card col-12 col-sm-6 col-md-4">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <h5>Frontend Development</h5>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <p>Proficiency Level: 80%</p>
-                                            <p>Tools: HTML, CSS, JavaScript, Bootstrap</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Skill Card 2 -->
-                                <div class="flip-card col-12 col-sm-6 col-md-4">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <h5>PHP & OOP</h5>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <p>Proficiency Level: 70%</p>
-                                            <p>Experience in building dynamic web applications.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Skill Card 3 -->
-                                <div class="flip-card col-12 col-sm-6 col-md-4">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <h5>REST API & Ajax</h5>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <p>Proficiency Level: 75%</p>
-                                            <p>Experience in integrating and creating RESTful services.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Add more skill cards as needed -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="education">
-                    <p>Education details...</p>
-                    <section id="education" class="">
-                        <div class="container text-center">
-                            <div class="row mt-4">
-                                <!-- Education Card 1 -->
-                                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card custom1-card border-primary">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bachelor of Science</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Computer Science and Engineering
-                                            </h6>
-                                            <p class="card-text">
-                                                North Western University<br>
-                                                2023
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Education Card 2 -->
-                                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card custom1-card border-primary">
-                                        <div class="card-body">
-                                            <h5 class="card-title">HSC</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Science</h6>
-                                            <h6 class="card-subtitle mb-2 text-muted">Barobazer Degree College</h6>
-                                            <p class="card-text">
-                                                2019
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Education Card 3 -->
-                                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                                    <div class="card custom1-card border-primary">
-                                        <div class="card-body">
-                                            <h5 class="card-title">SSC</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted">Science</h6>
-                                            <h6 class="card-subtitle mb-2 text-muted">Hat Barobazar High School</h6>
-                                            <p class="card-text">
-                                                2016
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                </div>
-                <div class="tab-pane fade pb-5 text-center" id="download">
-                    <div class="card shadow-lg border-0 p-4 mx-auto" style="max-width: 400px;">
-                        <div class="card-body">
-                            <h4 class="card-title fw-bold mb-3">Download My CV</h4>
-                            <p class="card-text">Get my CV to explore my skills and experience.</p>
-                            <a href="cv/SultanulArifine.pdf"
-                                class="btn btn-success d-flex align-items-center justify-content-center gap-2" download>
-                                <i class="bi bi-download"></i> Download CV
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="pt-5">
-        <div class="container text-center">
-            <h2>My Portfolio</h2>
-            <!-- Tabs -->
-            <ul class="nav nav-pills justify-content-center mt-4">
-
-                <li class="nav-item">
-                    <a class="nav-link active" href="#wordpress" data-toggle="tab">WordPress</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#web-development" data-toggle="tab">Web Development</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#grphic" data-toggle="tab">Graphic Ddesign</a>
-                </li>
-            </ul>
-            <!-- Tab Content -->
-            <div class="tab-content mt-4">
-                <div class="tab-pane fade show active" id="wordpress">
-                    <p>All Work...</p>
-                    <div class="row mt-4">
-                        <!-- Portfolio items -->
-                        <div class="col-md-4 mb-4 ">
-                            <div class="card border-primary">
-                                <iframe src="https://uc-chembd.com/" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">U.C Chem BD Ltd</h5>
-                                    <p class="card-text">It's a textile chemical solutions.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4 ">
-                            <div class="card border-primary">
-                                <iframe src="https://cincinnaticarpetrepair.com" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">... </h5>
-                                    <p class="card-text">......</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4 ">
-                            <div class="card border-primary">
-                                <iframe src="https://kmmusicstudio.com/" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">KM Music Studio </h5>
-                                    <p class="card-text">It's a Music Studio website.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 mb-4 ">
-                            <div class="card border-primary">
-                                <iframe src="https://www.fernygrovevet.com.au/" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">U.C Chem BD Ltd</h5>
-                                    <p class="card-text">It's a clinic solutions.</p>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="col-md-4 mb-4 ">
-                            <div class="card border-primary">
-                                <iframe src="https://rehabphysiocare.com/" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">Rehab Physio Care</h5>
-                                    <p class="card-text">It's a Physio Care Charity Site</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-primary">
-                                <iframe src="https://psdibd.com" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">PSDI Consiltancy</h5>
-                                    <p class="card-text">It's a Charity Website</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-primary">
-                                <iframe src="https://bdsmartunion.com/" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">Jessore IT Solution</h5>
-                                    <p class="card-text">It's a IT Solution Website.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-primary">
-                                <iframe src="https://dynamic.edu.bd" width="" height="500" frameborder="0"
-                                    allowfullscreen></iframe>
-                                <div class="card-body">
-                                    <h5 class="card-title">Dynamic Nursing College</h5>
-                                    <p class="card-text">It's a Nursing Institute Website.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="web-development">
-                    <p> learn more about my work...</p>
-                    <section id="education" class="">
-                        <div class="container text-center">
-                            <div class="row mt-4">
-
-                                <div class="col-md-4 mb-4">
-                                    <div class="card border-primary">
-                                        <iframe src="https://sultanularifine.github.io/Medicine-E-Commerce-Website/"
-                                            width="" height="500" frameborder="0" allowfullscreen></iframe>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Medicine E-commerce Solution</h5>
-                                            <p class="card-text">It's a E-commerce website.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="tab-pane fade pb-5" id="grphic">
-                    <p> learn more about my work.</p>
-                    <!-- sLIDER Section -->
-
-
-                    <div class="container gallery">
-                        <div class="row g-4">
-
-                            <div class="col-md-4">
-                                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                    data-full="graphic.jpeg">
-                                    <img src="graphic.jpeg" alt="Graphic Design 2">
-                                    <div class="caption">Branding Design</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                    data-full="graphic.jpeg">
-                                    <img src="graphic.jpeg" alt="Graphic Design 2">
-                                    <div class="caption">Branding Design</div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                    data-full="graphic.jpeg">
-                                    <img src="graphic.jpeg" alt="Graphic Design 2">
-                                    <div class="caption">Branding Design</div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content bg-dark text-white">
-                                <div class="modal-header border-0">
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body text-center">
-                                    <img id="modalImage" src="" class="img-fluid rounded" alt="Full Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
+    <div class="hero-right">
+      <div class="image-container">
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk" alt="Ben" />
+      </div>
+     <div class="socials">
+  <span>Follow me on</span>
+   <a href="https://www.linkedin.com/in/sultanularifine" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://www.facebook.com/sultanularifine.official" aria-label="Dribbble"><i class="fab fa-facebook"></i></a>
+  <a href="https://github.com/sultanularifine" aria-label="Instagram"><i class="fab fa-github"></i></a>
  
-    <section id="testimonials" class="pt-5 bg-light">
-        <div class="container text-center">
-            <h2>Testimonials</h2>
+</div>
+    </div>
+  </section>
 
-            <!-- Desktop Carousel -->
-            <div id="cccCarousel" class="carousel slide py-5 d-none d-md-block" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <!-- First Slide -->
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-4 d-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-start">
-                                        <div class="d-flex align-items-start pt-3">
-                                            <img src="repon.jpg" class="testimonial-image" alt="Md Jahid Hasan Repon">
-                                            <div class="testimonial-content ps-3">
-                                                <h5>Md Jahid Hasan Repon</h5>
-                                                <b><span class="text-muted small">CEO at Jessore IT Solution</span></b>
-                                                <p>I am satisfied with your product.</p>
-                                            </div>
-                                        </div>
+    <section>
+        <div class="body-services-carasol">
+            <div class="wrap">
+                <div class="title">Our Services</div>
+                <div class="scene" id="scene">
+                    <div class="carousel" id="carousel">
+                        <!-- Card 1 -->
+                        <article class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="eyebrow">Category</span>
+                                    <h3>The Algorithm Library</h3>
+                                    <p>Endless tomes of sorting, searching, and optimization.</p>
+                                    <div class="footer">
+                                        <a class="link" href="#">Read more</a>
+                                        <button class="btn">Open</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 d-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-start">
-                                        <div class="d-flex align-items-start pt-3">
-                                            <img src="kalam.jpg" class="testimonial-image" alt="Md Abul Kalam Azad">
-                                            <div class="testimonial-content ps-3">
-                                                <h5>Md Abul Kalam Azad</h5>
-                                                <b><span class="text-muted small">CEO at Rehab Physio Care</span></b>
-                                                <p>I like your design, and I'm very happy with the website you built for
-                                                    me.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="card-back">
+                                    <h3>More Info</h3>
+                                    <p>Extra details on algorithms, complexity, and implementations.</p>
+                                    <button class="btn">Close</button>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex justify-content-center">
-                                <div class="card border-primary">
-                                    <div class="card-body text-start">
-                                        <div class="d-flex align-items-start pt-3">
-                                            <img src="hasan.jpg" class="testimonial-image" alt="Md Hasan Ali">
-                                            <div class="testimonial-content ps-3">
-                                                <h5>Md Hasan Ali</h5>
-                                                <b><span class="text-muted small">Manager at XYZ Corp</span></b>
-                                                <p>Professional work and great support.</p>
-                                            </div>
-                                        </div>
+                        </article>
+                        <!-- Card 2 -->
+                        <article class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="eyebrow">Concept</span>
+                                    <h3>The Abstract Void</h3>
+                                    <p>Nothing concrete here, just elegant shapes and ideas.</p>
+                                    <div class="footer">
+                                        <a class="link" href="#">Details</a>
+                                        <button class="btn">Explore</button>
                                     </div>
                                 </div>
+                                <div class="card-back">
+                                    <h3>Back Side</h3>
+                                    <p>Additional conceptual explanations and diagrams.</p>
+                                    <button class="btn">Close</button>
+                                </div>
                             </div>
-                        </div>
+                        </article>
+                        <!-- Card 3 -->
+                        <article class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="eyebrow">Systems</span>
+                                    <h3>Distributed Dreams</h3>
+                                    <p>Leader election, consensus—fault-tolerant patterns.</p>
+                                    <div class="footer">
+                                        <a class="link" href="#">Docs</a>
+                                        <button class="btn">Launch</button>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Deep Dive</h3>
+                                    <p>Cluster management and high availability strategies.</p>
+                                    <button class="btn">Close</button>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Card 4 -->
+                        <article class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="eyebrow">Category</span>
+                                    <h3>The Algorithm Library</h3>
+                                    <p>Endless tomes of sorting, searching, and optimization.</p>
+                                    <div class="footer">
+                                        <a class="link" href="#">Read more</a>
+                                        <button class="btn">Open</button>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h3>More Info</h3>
+                                    <p>Extra details on algorithms, complexity, and implementations.</p>
+                                    <button class="btn">Close</button>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Card 5 -->
+                        <article class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="eyebrow">Concept</span>
+                                    <h3>The Abstract Void</h3>
+                                    <p>Nothing concrete here, just elegant shapes and ideas.</p>
+                                    <div class="footer">
+                                        <a class="link" href="#">Details</a>
+                                        <button class="btn">Explore</button>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Back Side</h3>
+                                    <p>Additional conceptual explanations and diagrams.</p>
+                                    <button class="btn">Close</button>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Card 6 -->
+                        <article class="card">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="eyebrow">Systems</span>
+                                    <h3>Distributed Dreams</h3>
+                                    <p>Leader election, consensus—fault-tolerant patterns.</p>
+                                    <div class="footer">
+                                        <a class="link" href="#">Docs</a>
+                                        <button class="btn">Launch</button>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h3>Deep Dive</h3>
+                                    <p>Cluster management and high availability strategies.</p>
+                                    <button class="btn">Close</button>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-                    <!-- Add more slides as needed -->
                 </div>
-
-                <!-- Carousel Controls -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
             </div>
 
-            <!-- Mobile View - Carousel -->
-            <div id="testimonialCarousel" class="carousel slide d-md-none" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <!-- First Slide -->
-                    <div class="carousel-item active">
-                        <div class="d-flex justify-content-center">
-                            <div class="card border-primary testimonial-card">
-                                <div class="card-body text-start">
-                                    <div class="d-flex align-items-start pt-3">
-                                        <img src="repon.jpg" class="testimonial-image" alt="Md Jahid Hasan Repon">
-                                        <div class="testimonial-content ps-3">
-                                            <h5>Md Jahid Hasan Repon</h5>
-                                            <b><span class="text-muted small">CEO at Jessore IT Solution</span></b>
-                                            <p>I am satisfied with your product.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Second Slide -->
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card border-primary testimonial-card">
-                                <div class="card-body text-start">
-                                    <div class="d-flex align-items-start pt-3">
-                                        <img src="kalam.jpg" class="testimonial-image" alt="Md Abul Kalam Azad">
-                                        <div class="testimonial-content ps-3">
-                                            <h5>Md Abul Kalam Azad</h5>
-                                            <b><span class="text-muted small">CEO at Rehab Physio Care</span></b>
-                                            <p>I like your design, and I'm very happy with the website you built for me.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Third Slide -->
-                    <div class="carousel-item">
-                        <div class="d-flex justify-content-center">
-                            <div class="card border-primary testimonial-card">
-                                <div class="card-body text-start">
-                                    <div class="d-flex align-items-start pt-3">
-                                        <img src="hasan.jpg" class="testimonial-image" alt="Md Hasan Ali">
-                                        <div class="testimonial-content ps-3">
-                                            <h5>Md Hasan Ali</h5>
-                                            <b><span class="text-muted small">Manager at XYZ Corp</span></b>
-                                            <p>Professional work and great support.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        </div>
     </section>
-
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-2 bg-light">
-        <div class="container">
-            <div class="row">
-                <!-- Contact Form -->
-                <h2 class="text-center mb-4">Let's Work Together!</h2>
-                <div class="col-md-8 mb-4">
-
-                    <div class="card shadow glassmorphism border-primary">
-                        <form class="p-4">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control border-primary" placeholder="Your Full Name"
-                                        required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="email" class="form-control border-primary"
-                                        placeholder="Your Email Address" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control border-primary"
-                                        placeholder="Your Phone Number" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control border-primary" placeholder="Your Budget">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 mb-3">
-                                    <textarea class="form-control border-primary"
-                                        placeholder="Write Your Message Here..." rows="4" required></textarea>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                        </form>
+    <section class="about-section">
+        <div class="about-container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-right">
+                    <div class="photo-card">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                            alt="Your Photo">
                     </div>
                 </div>
 
-                <!-- Contact Info with Glassmorphism -->
-                <div class="col-md-4 mb-4">
-
-                    <div class="card-body card shadow bg-contact glassmorphism border-primary">
-                        <h4 class="pb-3">Contact Information</h4>
-                        <p class="border-primary glassmorphism "><i class="fas fa-envelope "></i>
-                            <strong>Email:</strong> sultanularifine@gmai.com
+                <div class="about-left">
+                    <div class="about-card">
+                        <p>
+                            I am a passionate developer and designer delivering modern web solutions
+                            with creativity and precision.
                         </p>
-                        <p class="border-primary glassmorphism"><i class="fas fa-phone "></i> <strong>Phone:</strong>
-                            +880 1766 359 998</p>
-                        <p class="border-primary glassmorphism"><i class="fas fa-map-marker-alt "></i>
-                            <strong>Address:</strong> Barobazer, Kaligonj, Jhenaidah
+                        <p>
+                            I focus on user-centric design, responsive layouts, and cutting-edge technologies
+                            to bring ideas to life.
                         </p>
-
+                        <div class="stats">
+                            <div class="stat">
+                                <h3 class="counter" data-target="10">0</h3>
+                                <p>Years Experience</p>
+                            </div>
+                            <div class="stat">
+                                <h3 class="counter" data-target="250">0</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat">
+                                <h3 class="counter" data-target="99">0</h3>
+                                <p>Client Satisfaction %</p>
+                            </div>
+                        </div>
+                        <button class="btn">Learn More</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <section>
+        <div class=" body-priceing">
+            <h1 class="title">Choose Your Perfect Plan</h1>
+            <p class="subtitle">
+                Discover flexible subscription plans tailored to meet your business needs.
+            </p>
 
-    <!-- Footer -->
-    <footer class="bg-light  pt-3 py-2">
-        <div class="container ">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="mb-0">© 2024 Sultanul Arifine. All rights reserved.</p>
+            <div class="toggle">
+                <button class="active" id="monthlyBtn">Monthly</button>
+                <button id="annualBtn">Annual</button>
+            </div>
+
+            <div class="pricing-container">
+                <div class="card-pricing">
+                    <h2>Basic Plan</h2>
+                    <div class="price" data-monthly="$19/month" data-annual="$199/year">$19/month</div>
+                    <ul class="features">
+                        <li>Access to all basic features</li>
+                        <li>10 GB of cloud storage</li>
+                        <li>Email support</li>
+                        <li>Single user access</li>
+                    </ul>
+                    <button class="btn-pricing">Subscribe Now</button>
+                </div>
+
+                <div class="card-pricing">
+                    <h2>Professional Plan</h2>
+                    <div class="price" data-monthly="$49/month" data-annual="$499/year">$49/month</div>
+                    <ul class="features">
+                        <li>All features in Basic Plan</li>
+                        <li>50 GB of cloud storage</li>
+                        <li>Priority email and chat support</li>
+                        <li>Multi-user access (up to 5 users)</li>
+                    </ul>
+                    <button class="btn-pricing">Subscribe Now</button>
+                </div>
+
+                <div class="card-pricing">
+                    <h2>Enterprise Plan</h2>
+                    <div class="price" data-monthly="$99/month" data-annual="$999/year">$99/month</div>
+                    <ul class="features">
+                        <li>All features in Professional Plan</li>
+                        <li>Unlimited cloud storage</li>
+                        <li>24/7 dedicated support</li>
+                        <li>Unlimited user access</li>
+                    </ul>
+                    <button class="btn-pricing">Subscribe Now</button>
                 </div>
             </div>
+        </div>
+    </section>
+    <section class="skills-body">
+
+        <h1>My Skills, Experience & Education</h1>
+
+        <div class="skills-tab-buttons">
+            <button class="skills-tab-button active" data-tab="skills">Skills</button>
+            <button class="skills-tab-button" data-tab="experience">Experience</button>
+            <button class="skills-tab-button" data-tab="education">Education</button>
+        </div>
+
+        <!-- Skills Tab -->
+        <div class="skills-tab-content active" id="skills">
+            <div class="skills-tab-card">
+                <h3>Web Development</h3>
+                <p>HTML, CSS, JS, PHP, Laravel, React.js</p>
+            </div>
+            <div class="skills-tab-card">
+                <h3>WordPress</h3>
+                <p>Custom Themes, Plugins, WooCommerce</p>
+            </div>
+            <div class="skills-tab-card">
+                <h3>Graphic Design</h3>
+                <p>Photoshop, Illustrator, Figma</p>
+            </div>
+        </div>
+
+        <!-- Experience Tab -->
+        <div class="skills-tab-content" id="experience">
+            <div class="skills-tab-card">
+                <h3>SoftHost IT / Dhaka (Remote)</h3>
+                <p>Web Developer | Dec 2024 – Jan 2025</p>
+                <ul>
+                    <li>Worked on multiple web development projects, including: Jewel Store BD, ERP System, BFH
+                        HostZone, Sarabela Distribution, 11 Mega Supermarket, Motiar Traders, SBSSL Khulna</li>
+                    <li>MKB BsoftBD</li>
+                    <li>Developed and optimized user-friendly interfaces.</li>
+                    <li>Implemented backend functionalities to enhance system performance.</li>
+                </ul>
+                <button class="skills-download-btn">Download CV</button>
+            </div>
+            <div class="skills-tab-card">
+                <h3>bdCoder IT Park / Khulna</h3>
+                <p>Junior Software Engineer | Jul 2024 – Aug 2024</p>
+                <ul>
+                    <li>Developed an e-commerce AI Chatbot with CRUD operations using Ajax.</li>
+                    <li>Built a tourist management system (Touran) with various admin functionalities.</li>
+                </ul>
+
+            </div>
+            <div class="skills-tab-card">
+                <h3>BetaCoders / Khulna</h3>
+                <p>Web Development Intern | Oct 2023 – Feb 2024</p>
+                <ul>
+                    <li>Gained experience in frontend development, PHP, and OOP.</li>
+                    <li>Worked on the Education Consultancy Management System project (CVIEDU).</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <!-- Education Tab -->
+        <div class="skills-tab-content" id="education">
+            <div class="skills-tab-card">
+                <h3>Bachelor of Science</h3>
+                <p>Computer Science and Engineering | North Western University | 2023</p>
+            </div>
+            <div class="skills-tab-card">
+                <h3>HSC Science</h3>
+                <p>Barobazer Degree College | 2019</p>
+            </div>
+            <div class="skills-tab-card">
+                <h3>SSC Science</h3>
+                <p>Hat Barobazar High School | 2016</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="body-portfolio">
+
+        <h1>My Portfolio</h1>
+
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="wordpress">WordPress</button>
+            <button class="tab-button" data-tab="webdev">Web Development</button>
+            <button class="tab-button" data-tab="graphic">Graphic Design</button>
+        </div>
+
+        <!-- WordPress Tab -->
+        <div class="tab-content active" id="wordpress">
+        </div>
+
+        <!-- Web Development Tab -->
+        <div class="tab-content" id="webdev">
+        </div>
+
+        <!-- Graphic Design Tab -->
+        <div class="tab-content" id="graphic">
+        </div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <img src="" alt="Large Image">
+        </div>
+
+    </section>
+    <!-- Testimonial Carousel Section -->
+    <section class="testimonial-section">
+        <h2 class="testimonial-section-title">What Our Clients Say</h2>
+        <div class="testimonial-scene" id="testimonialScene">
+            <div class="testimonial-carousel" id="testimonialCarousel">
+
+                <!-- Testimonial Card 1 -->
+                <div class="testimonial-card">
+                    <p>"Amazing service! Delivered everything on time."</p>
+                    <div class="testimonial-client-info">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                            alt="Client">
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>CEO, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card">
+                    <p>"Professional and creative work."</p>
+                    <div class="testimonial-client-info">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                            alt="Client">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <p>Founder, StartupX</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card">
+                    <p>"Professional and creative work."</p>
+                    <div class="testimonial-client-info">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                            alt="Client">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <p>Founder, StartupX</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card">
+                    <p>"Professional and creative work."</p>
+                    <div class="testimonial-client-info">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                            alt="Client">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <p>Founder, StartupX</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="testimonial-card">
+                    <p>"Excellent support and fast delivery."</p>
+                    <div class="testimonial-client-info">
+                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                            alt="Client">
+                        <div>
+                            <h4>Mike Johnson</h4>
+                            <p>Manager, CreativeLab</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>MyCompany</h3>
+                <p>Providing quality services & solutions to help your business grow.</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Email: info@mycompany.com</p>
+                <p>Phone: +123 456 7890</p>
+                <p>Address: 123 Business St, City, Country</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Sultanul Arifine. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top -->
-    <a href="#" class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- counter -->
+
+
+    <script src="script.js"></script>
     <script>
-        // Simple counter animation
-        function animateCounter(id, endValue) {
-            let startValue = 0;
-            let duration = 2000; // Duration in ms
-            let stepTime = Math.abs(Math.floor(duration / endValue));
-            let element = document.getElementById(id);
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tabs
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
 
-            let timer = setInterval(function () {
-                startValue += 1;
-                element.innerText = startValue;
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
 
-                if (startValue >= endValue) {
-                    clearInterval(timer);
-                }
-            }, stepTime);
-        }
-
-        // Intersection Observer for scroll detection
-        const counters = [
-            { id: 'years-experience', value: 2 },
-            { id: 'project-count', value: 13 },
-            { id: 'client-satisfaction', value: 95 },
-        ];
-
-        let hasAnimated = false;
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !hasAnimated) {
-                    hasAnimated = true;
-                    counters.forEach(counter => {
-                        animateCounter(counter.id, counter.value);
+                    const tab = button.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                        if (content.id === tab) content.classList.add('active');
                     });
+                });
+            });
+
+            // Modal
+            const modal = document.getElementById('modal');
+            const modalImg = modal.querySelector('img');
+
+            document.addEventListener('click', e => {
+                if (e.target.tagName === 'IMG' && e.target.closest('.portfolio-card')) {
+                    modalImg.src = e.target.src;
+                    modal.classList.add('active');
                 }
             });
+            modal.addEventListener('click', () => modal.classList.remove('active'));
+
+            // Data
+            const data = {
+                wordpress: [
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 1", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 2", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 3", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 4", link: "#" }
+                ],
+                webdev: [
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 1", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 2", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 3", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 4", link: "#" }
+                ],
+                graphic: [
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 1", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 2", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 3", link: "#" },
+                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 4", link: "#" }
+                ]
+            };
+
+            function renderTab(tab) {
+                const container = document.getElementById(tab);
+                container.innerHTML = '';
+                data[tab].forEach(card => {
+                    const div = document.createElement('div');
+                    div.classList.add('portfolio-card');
+                    // Add tab-specific class for hover effects
+                    if (tab === 'wordpress') div.classList.add('wordpress-card');
+                    if (tab === 'webdev') div.classList.add('webdev-card');
+                    if (tab === 'graphic') div.classList.add('graphic-card');
+                    div.innerHTML = `<img src="${card.img}" alt="${card.title}"><h3>${card.title}</h3><a href="${card.link}">View Site</a>`;
+                    container.appendChild(div);
+                });
+            }
+
+            ['wordpress', 'webdev', 'graphic'].forEach(tab => renderTab(tab));
         });
-
-        // Observe the counter container
-        observer.observe(document.querySelector('.counter-container'));
-
-    </script>
-
-    <script>
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.setProperty('--mouse-x', `0px`);
-                card.style.setProperty('--mouse-y', `0px`);
-            });
-        });
     </script>
     <script>
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.skills-tab-button');
+            const tabContents = document.querySelectorAll('.skills-tab-content');
 
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
-        });
-    </script>
-    <!-- // Scroll to top on button click -->
-    <script>
-        $(document).ready(function () {
-            // Show or hide the button depending on scroll position
-            $(window).scroll(function () {
-                if ($(this).scrollTop() > 200) {
-                    $('#scrollToTop').fadeIn();
-                } else {
-                    $('#scrollToTop').fadeOut();
-                }
-            });
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
 
-            // Scroll to top on button click
-            $('#scrollToTop').click(function (e) {
-                e.preventDefault();
-                $('html, body').animate({ scrollTop: 0 }, 800);
-            });
-        });
-
-    </script>
-    <!-- galary full view -->
-    <script>
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            item.addEventListener('click', function () {
-                const imgSrc = this.getAttribute('data-full'); // Get full image URL
-                document.getElementById('modalImage').src = imgSrc;
+                    const tab = btn.getAttribute('data-tab');
+                    tabContents.forEach(tc => {
+                        tc.classList.remove('active');
+                        if (tc.id === tab) tc.classList.add('active');
+                    });
+                });
             });
         });
     </script>
@@ -1016,6 +612,7 @@
             showSlide();
         });
     </script>
+
 </body>
 
 </html>
