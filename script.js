@@ -171,3 +171,8 @@ counters.forEach(counter => {
  
 
         // ________________________________skills
+
+
+        // contact 
+
+        

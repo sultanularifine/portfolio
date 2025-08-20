@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Glassmorphism 3D Carousel</title>
     <link rel="stylesheet" href="style.css">
-    <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 
 <body>
@@ -23,12 +20,12 @@
                     <span></span>
                 </div>
                 <ul id="navList">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Skills">Skills</a></li>
+                    <li><a href="#Portfolio">Portfolio</a></li>
+                    <li><a href="#Contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -42,161 +39,153 @@
         </div>
     </section>
 
-  <section class="hero body-hero">
-    <div class="hero-left">
-      <p class="welcome">Welcome to my portfolio!</p>
-      <h1>Hello, my  name’s<br> <span class="highlight"> Sultanul Arifine.</span></h1>
-      <p class="desc">
-        I'm a web developwe from Bangladesh. <br>
-        Currently working with <span class="mention">@Requin BD</span> as a CEO.
-      </p>
-      <div class="cta-buttons">
-        <a href="#" class="btn primary">Hire Me</a>
-        <a href="#" class="btn secondary">See my work</a>
-      </div>
-    </div>
+    <section class="hero body-hero" id="Home">
+        <div class="hero-left">
+            <p class="welcome">Welcome to my portfolio!</p>
+            <h1>Hello, my name’s<br> <span class="highlight"> Sultanul Arifine.</span></h1>
+            <p class="desc">
+                I'm a web developwe from Bangladesh. <br>
+                Currently working with <span class="mention">@Requin BD</span> as a CEO.
+            </p>
+            <div class="cta-buttons">
+                <a href="#" class="btn primary">Hire Me</a>
+                <a href="#" class="btn secondary">See my work</a>
+            </div>
+        </div>
 
-    <div class="hero-right">
-      <div class="image-container">
-        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk" alt="Ben" />
-      </div>
-     <div class="socials">
-  <span>Follow me on</span>
-   <a href="https://www.linkedin.com/in/sultanularifine" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-  <a href="https://www.facebook.com/sultanularifine.official" aria-label="Dribbble"><i class="fab fa-facebook"></i></a>
-  <a href="https://github.com/sultanularifine" aria-label="Instagram"><i class="fab fa-github"></i></a>
- 
-</div>
-    </div>
-  </section>
+        <div class="hero-right">
+            <div class="image-container">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
+                    alt="Ben" />
+            </div>
+            <div class="socials">
+                <span>Follow me on</span>
+                <a href="https://www.linkedin.com/in/sultanularifine" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/sultanularifine.official" aria-label="Dribbble"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://github.com/sultanularifine" aria-label="Instagram"><i class="fab fa-github"></i></a>
 
-    <section>
+            </div>
+        </div>
+    </section>
+
+    <section id="Services">
         <div class="body-services-carasol">
             <div class="wrap">
                 <div class="title">Our Services</div>
                 <div class="scene" id="scene">
                     <div class="carousel" id="carousel">
-                        <!-- Card 1 -->
+                        <!-- Card 1: Web Design -->
                         <article class="card">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <span class="eyebrow">Category</span>
-                                    <h3>The Algorithm Library</h3>
-                                    <p>Endless tomes of sorting, searching, and optimization.</p>
-                                    <div class="footer">
-                                        <a class="link" href="#">Read more</a>
-                                        <button class="btn">Open</button>
-                                    </div>
+                                    <img class="service-icon" src="/image/web-design.png" alt="Web Design" />
+                                    <h4>Web Design</h4>
+                                    <h3>Beautiful Websites</h3>
+                                    <p>Create stunning responsive websites for all devices.</p>
                                 </div>
                                 <div class="card-back">
-                                    <h3>More Info</h3>
-                                    <p>Extra details on algorithms, complexity, and implementations.</p>
-                                    <button class="btn">Close</button>
+                                    <h3>Facilities</h3>
+                                    <ul class="facilities-list">
+                                        <li>Responsive layouts</li>
+                                        <li>UI/UX design</li>
+                                        <li>SEO friendly</li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
-                        <!-- Card 2 -->
+
+                        <!-- Card 2: WordPress -->
                         <article class="card">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <span class="eyebrow">Concept</span>
-                                    <h3>The Abstract Void</h3>
-                                    <p>Nothing concrete here, just elegant shapes and ideas.</p>
-                                    <div class="footer">
-                                        <a class="link" href="#">Details</a>
-                                        <button class="btn">Explore</button>
-                                    </div>
+                                    <img class="service-icon" src="https://img.icons8.com/color/96/wordpress.png"
+                                        alt="WordPress" />
+                                    <h4>WordPress Development</h4>
+                                    <h3>CMS Solutions</h3>
+                                    <p>Build powerful WordPress websites with custom themes and plugins.</p>
                                 </div>
                                 <div class="card-back">
-                                    <h3>Back Side</h3>
-                                    <p>Additional conceptual explanations and diagrams.</p>
-                                    <button class="btn">Close</button>
+                                    <h3>Facilities</h3>
+                                    <ul class="facilities-list">
+                                        <li>Theme customization</li>
+                                        <li>Plugin development</li>
+                                        <li>WooCommerce integration</li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
-                        <!-- Card 3 -->
+
+                        <!-- Card 3: Graphic Design -->
                         <article class="card">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <span class="eyebrow">Systems</span>
-                                    <h3>Distributed Dreams</h3>
-                                    <p>Leader election, consensus—fault-tolerant patterns.</p>
-                                    <div class="footer">
-                                        <a class="link" href="#">Docs</a>
-                                        <button class="btn">Launch</button>
-                                    </div>
+                                    <img class="service-icon" src="/image/graphic-design.png" alt="Graphic Design" />
+                                    <h4>Graphic Design</h4>
+                                    <h3>Visual Branding</h3>
+                                    <p>Create logos, banners, and visual content for brands.</p>
                                 </div>
                                 <div class="card-back">
-                                    <h3>Deep Dive</h3>
-                                    <p>Cluster management and high availability strategies.</p>
-                                    <button class="btn">Close</button>
+                                    <h3>Facilities</h3>
+                                    <ul class="facilities-list">
+                                        <li>Logo design</li>
+                                        <li>Social media graphics</li>
+                                        <li>Print design</li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
-                        <!-- Card 4 -->
+
+                        <!-- Card 4: Digital Marketing -->
                         <article class="card">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <span class="eyebrow">Category</span>
-                                    <h3>The Algorithm Library</h3>
-                                    <p>Endless tomes of sorting, searching, and optimization.</p>
-                                    <div class="footer">
-                                        <a class="link" href="#">Read more</a>
-                                        <button class="btn">Open</button>
-                                    </div>
+                                    <img class="service-icon" src="/image/digital-marketing.png"
+                                        alt="Digital Marketing" />
+                                    <h4>Digital Marketing</h4>
+                                    <h3>Grow Your Business</h3>
+                                    <p>SEO, social media, and advertising to boost your reach.</p>
                                 </div>
                                 <div class="card-back">
-                                    <h3>More Info</h3>
-                                    <p>Extra details on algorithms, complexity, and implementations.</p>
-                                    <button class="btn">Close</button>
+                                    <h3>Facilities</h3>
+                                    <ul class="facilities-list">
+                                        <li>SEO & SEM</li>
+                                        <li>Social media campaigns</li>
+                                        <li>Email marketing</li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
-                        <!-- Card 5 -->
+
+                        <!-- Card 5: UI/UX Design -->
                         <article class="card">
                             <div class="card-inner">
                                 <div class="card-front">
-                                    <span class="eyebrow">Concept</span>
-                                    <h3>The Abstract Void</h3>
-                                    <p>Nothing concrete here, just elegant shapes and ideas.</p>
-                                    <div class="footer">
-                                        <a class="link" href="#">Details</a>
-                                        <button class="btn">Explore</button>
-                                    </div>
+                                    <img class="service-icon" src="/image/uiux.png" alt="UI/UX Design" />
+                                    <h4>UI/UX Design</h4>
+                                    <h3>User Friendly</h3>
+                                    <p>Design intuitive interfaces and seamless experiences.</p>
                                 </div>
                                 <div class="card-back">
-                                    <h3>Back Side</h3>
-                                    <p>Additional conceptual explanations and diagrams.</p>
-                                    <button class="btn">Close</button>
+                                    <h3>Facilities</h3>
+                                    <ul class="facilities-list">
+                                        <li>Wireframing & prototyping</li>
+                                        <li>Usability testing</li>
+                                        <li>Interactive UI design</li>
+                                    </ul>
                                 </div>
                             </div>
                         </article>
-                        <!-- Card 6 -->
-                        <article class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <span class="eyebrow">Systems</span>
-                                    <h3>Distributed Dreams</h3>
-                                    <p>Leader election, consensus—fault-tolerant patterns.</p>
-                                    <div class="footer">
-                                        <a class="link" href="#">Docs</a>
-                                        <button class="btn">Launch</button>
-                                    </div>
-                                </div>
-                                <div class="card-back">
-                                    <h3>Deep Dive</h3>
-                                    <p>Cluster management and high availability strategies.</p>
-                                    <button class="btn">Close</button>
-                                </div>
-                            </div>
-                        </article>
+
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
-    <section class="about-section">
+
+
+    <section class="about-section" id="About">
         <div class="about-container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
@@ -217,13 +206,16 @@
                             I focus on user-centric design, responsive layouts, and cutting-edge technologies
                             to bring ideas to life.
                         </p>
+                        <p>
+                            And......
+                        </p>
                         <div class="stats">
                             <div class="stat">
-                                <h3 class="counter" data-target="10">0</h3>
+                                <h3 class="counter" data-target="3">0</h3>
                                 <p>Years Experience</p>
                             </div>
                             <div class="stat">
-                                <h3 class="counter" data-target="250">0</h3>
+                                <h3 class="counter" data-target="25">0</h3>
                                 <p>Projects Completed</p>
                             </div>
                             <div class="stat">
@@ -237,7 +229,9 @@
             </div>
         </div>
     </section>
-    <section>
+    <!-- about -->
+
+    <!-- <section>
         <div class=" body-priceing">
             <h1 class="title">Choose Your Perfect Plan</h1>
             <p class="subtitle">
@@ -287,8 +281,62 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <section id="pricing">
+        <div class=" body-priceing">
+            <h1 class="title">Choose Your Perfect Plan</h1>
+            <p class="subtitle">
+                Pick the ideal plan for your digital service needs and grow your business.
+            </p>
+
+            <div class="toggle">
+                <button class="active" id="monthlyBtn">Monthly</button>
+                <button id="annualBtn">Annual</button>
+            </div>
+
+            <div class="pricing-container">
+                <div class="card-pricing">
+                    <h2>Web Design Plan</h2>
+                    <div class="price" data-monthly="$290/month" data-annual="$2900/year">$29/month</div>
+                    <ul class="features">
+                        <li>Responsive and modern layouts</li>
+                        <li>Custom UI/UX designs</li>
+                        <li>SEO friendly websites</li>
+                        <li>Basic support included</li>
+                    </ul>
+                    <button class="btn-pricing">Subscribe Now</button>
+                </div>
+
+                <div class="card-pricing">
+                    <h2>WordPress Development</h2>
+                    <div class="price" data-monthly="$390/month" data-annual="$3900/year">$39/month</div>
+                    <ul class="features">
+                        <li>Custom themes & plugin development</li>
+                        <li>WooCommerce integration</li>
+                        <li>Secure & optimized sites</li>
+                        <li>Support & maintenance included</li>
+                    </ul>
+                    <button class="btn-pricing">Subscribe Now</button>
+                </div>
+
+                <div class="card-pricing">
+                    <h2>Graphic Design</h2>
+                    <div class="price" data-monthly="$250/month" data-annual="$2500/year">$25/month</div>
+                    <ul class="features">
+                        <li>Logo & branding design</li>
+                        <li>Social media graphics</li>
+                        <li>Print and digital media design</li>
+                        <li>Unlimited revisions</li>
+                    </ul>
+                    <button class="btn-pricing">Subscribe Now</button>
+                </div>
+
+            </div>
+        </div>
     </section>
-    <section class="skills-body">
+
+    <section id="Skills" class="skills-body">
 
         <h1>My Skills, Experience & Education</h1>
 
@@ -365,8 +413,8 @@
         </div>
     </section>
 
-
-    <section class="body-portfolio">
+    <!-- Skills -->
+    <section id="Portfolio" class="body-portfolio">
 
         <h1>My Portfolio</h1>
 
@@ -394,75 +442,119 @@
         </div>
 
     </section>
+
     <!-- Testimonial Carousel Section -->
-    <section class="testimonial-section">
-        <h2 class="testimonial-section-title">What Our Clients Say</h2>
-        <div class="testimonial-scene" id="testimonialScene">
-            <div class="testimonial-carousel" id="testimonialCarousel">
-
-                <!-- Testimonial Card 1 -->
+    <section id="testimonial" class="testimonial-section">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-wrapper">
+            <div class="testimonial-carousel" id="testimonial-carousel">
+                <!-- Card 1 -->
                 <div class="testimonial-card">
-                    <p>"Amazing service! Delivered everything on time."</p>
-                    <div class="testimonial-client-info">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                            alt="Client">
-                        <div>
-                            <h4>John Doe</h4>
-                            <p>CEO, TechCorp</p>
-                        </div>
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Fardin Hassan Rocky">
                     </div>
+                    <p>"Sultanul is an amazing developer. His work on our website exceeded expectations!"</p>
+                    <h4>Fardin Hassan Rocky</h4>
+                    <span class="designation">CEO, Requin BD</span>
                 </div>
 
-                <!-- Testimonial Card 2 -->
+                <!-- Card 2 -->
                 <div class="testimonial-card">
-                    <p>"Professional and creative work."</p>
-                    <div class="testimonial-client-info">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                            alt="Client">
-                        <div>
-                            <h4>Jane Smith</h4>
-                            <p>Founder, StartupX</p>
-                        </div>
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=2" alt="Md Mukul Hossen">
                     </div>
-                </div>
-                <!-- Testimonial Card 2 -->
-                <div class="testimonial-card">
-                    <p>"Professional and creative work."</p>
-                    <div class="testimonial-client-info">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                            alt="Client">
-                        <div>
-                            <h4>Jane Smith</h4>
-                            <p>Founder, StartupX</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Testimonial Card 2 -->
-                <div class="testimonial-card">
-                    <p>"Professional and creative work."</p>
-                    <div class="testimonial-client-info">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                            alt="Client">
-                        <div>
-                            <h4>Jane Smith</h4>
-                            <p>Founder, StartupX</p>
-                        </div>
-                    </div>
+                    <p>"Highly professional and delivers on time. I would recommend him to anyone."</p>
+                    <h4>Md Mukul Hossen</h4>
+                    <span class="designation">Legendary Footballer</span>
                 </div>
 
-                <!-- Testimonial Card 3 -->
+                <!-- Card 3 -->
                 <div class="testimonial-card">
-                    <p>"Excellent support and fast delivery."</p>
-                    <div class="testimonial-client-info">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                            alt="Client">
-                        <div>
-                            <h4>Mike Johnson</h4>
-                            <p>Manager, CreativeLab</p>
-                        </div>
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=3" alt="Thamid Tahmid">
                     </div>
+                    <p>"Creative, skilled, and a pleasure to work with. Truly a top-tier designer."</p>
+                    <h4>Thamid Tahmid</h4>
+                    <span class="designation">President, BSA</span>
                 </div>
 
+                <!-- Card 4 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=4" alt="Another Client">
+                    </div>
+                    <p>"Amazing work ethic and attention to detail. Loved working together."</p>
+                    <h4>Another Client</h4>
+                    <span class="designation">Project Manager</span>
+                </div>
+
+                <!-- duplicate for infinite loop -->
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=1" alt="Fardin Hassan Rocky">
+                    </div>
+                    <p>"Sultanul is an amazing developer. His work on our website exceeded expectations!"</p>
+                    <h4>Fardin Hassan Rocky</h4>
+                    <span class="designation">Presedent, Requin BD</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=2" alt="Md Mukul Hossen">
+                    </div>
+                    <p>"Highly professional and delivers on time. I would recommend him to anyone."</p>
+                    <h4>Md Mukul Hossen</h4>
+                    <span class="designation">Legendary Footballer</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=3" alt="Thamid Tahmid">
+                    </div>
+                    <p>"Creative, skilled, and a pleasure to work with. Truly a top-tier designer."</p>
+                    <h4>Thamid Tahmid</h4>
+                    <span class="designation">President, BSA</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-img">
+                        <img src="https://i.pravatar.cc/100?img=4" alt="Another Client">
+                    </div>
+                    <p>"Amazing work ethic and attention to detail. Loved working together."</p>
+                    <h4>Another Client</h4>
+                    <span class="designation">Project Manager</span>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <!-- contact  -->
+    <section id="Contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Have a question or want to work together? Send me a message!</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                   <p>Phone/WhatsApp: <a href="https://wa.me/8801766359998" target="_blank">01766359998</a></p>
+                    <p>Email: <a href="mailto:sultanularifine@gmail.com">sultanularifine@gmail.com</a></p>
+                    <p>Feel free to reach out anytime. I will respond as soon as possible.</p>
+                </div>
+
+                <form class="contact-form" action="mailto:sultanularifine@gmail.com" method="post" enctype="text/plain">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Enter subject">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                        placeholder="Your message here..."></textarea>
+
+                    <button type="submit" class="btn-contact">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
@@ -497,7 +589,6 @@
             <p>© 2025 Sultanul Arifine. All Rights Reserved.</p>
         </div>
     </footer>
-
 
 
     <script src="script.js"></script>
@@ -612,7 +703,21 @@
             showSlide();
         });
     </script>
+    <script>
+        const carousel = document.getElementById('testimonial-carousel');
+        let index = 0;
 
+        function rotateCarousel() {
+            const cardWidth = carousel.children[0].offsetWidth + 30; // card width + gap
+            index++;
+            if (index >= carousel.children.length) index = 0;
+            carousel.style.transform = `translateX(-${cardWidth * index}px)`;
+        }
+
+        setInterval(rotateCarousel, 4000);
+
+
+    </script>
 </body>
 
 </html>
