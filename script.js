@@ -168,11 +168,11 @@ counters.forEach(counter => {
   toggle.addEventListener('click', () => navList.classList.toggle('open'));
 })();
 // -----------------------------testimonial
- 
+function openLightbox(img) {
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox').style.display = 'flex';
+}
 
-        // ________________________________skills
-
-
-        // contact 
-
-        
+function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
