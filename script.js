@@ -63,57 +63,75 @@ toggle.addEventListener('click', () => {
   toggle.classList.toggle('active');
 });
 // price---------------------------------------------------------------
-
-const monthlyBtn = document.getElementById("monthlyBtn");
-const annualBtn = document.getElementById("annualBtn");
-const prices = document.querySelectorAll(".price");
-
-monthlyBtn.addEventListener("click", () => {
-  monthlyBtn.classList.add("active");
-  annualBtn.classList.remove("active");
-  prices.forEach(price => {
-    price.textContent = price.getAttribute("data-monthly");
-  });
-});
-
-annualBtn.addEventListener("click", () => {
-  annualBtn.classList.add("active");
-  monthlyBtn.classList.remove("active");
-  prices.forEach(price => {
-    price.textContent = price.getAttribute("data-annual");
-  });
-});
-// -------------------------------------------------------------
-// Counter animation
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-  const updateCount = () => {
-    const target = +counter.getAttribute('data-target');
-    const count = +counter.innerText;
-    const increment = target / 100; // speed of counting
-
-    if(count < target){
-      counter.innerText = Math.ceil(count + increment);
-      setTimeout(updateCount, 20);
-    } else {
-      counter.innerText = target;
-    }
+(function () {
+  const onReady = (fn) => {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+    else fn();
   };
 
-  // Trigger when in viewport
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        updateCount();
-        observer.unobserve(counter);
+  onReady(() => {
+    const counters = document.querySelectorAll('.counter');
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function startCount(el, duration) {
+      if (el.dataset.started) return; // prevent double run
+      el.dataset.started = '1';
+      const target = parseInt(el.dataset.target || '0', 10);
+      const startValue = parseInt(el.textContent || '0', 10) || 0;
+      const total = Math.max(target - startValue, 0);
+      const ms = prefersReduced ? 400 : (duration || 1200);
+      const startTime = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - startTime) / ms, 1);
+        const value = Math.ceil(startValue + progress * total);
+        el.textContent = value;
+        if (progress < 1) requestAnimationFrame(tick);
       }
+      requestAnimationFrame(tick);
+    }
+
+    function isInViewport(el) {
+      const r = el.getBoundingClientRect();
+      const vh = (window.innerHeight || document.documentElement.clientHeight);
+      const vw = (window.innerWidth || document.documentElement.clientWidth);
+      return r.top < vh * 0.9 && r.bottom > 0 && r.left < vw && r.right > 0;
+    }
+
+    // If IO exists, use it; else fall back to scroll/resize checks
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startCount(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
+
+      counters.forEach((c) => {
+        c.textContent = '0';
+        // If already visible on load, IO will still fire, but we also guard with a quick sync check
+        if (isInViewport(c)) startCount(c);
+        observer.observe(c);
+      });
+    } else {
+      // Fallback
+      const tryStartVisible = () => counters.forEach((c) => { if (!c.dataset.started && isInViewport(c)) startCount(c); });
+      counters.forEach((c) => { c.textContent = '0'; });
+      tryStartVisible();
+      window.addEventListener('scroll', tryStartVisible, { passive: true });
+      window.addEventListener('resize', tryStartVisible);
+      document.addEventListener('visibilitychange', tryStartVisible);
+    }
+
+    // Safety: if section was hidden (e.g., in a tab) and becomes visible later
+    const mutationObserver = new MutationObserver(() => {
+      counters.forEach((c) => { if (!c.dataset.started && isInViewport(c)) startCount(c); });
     });
-  }, {threshold: 0.5});
-
-  observer.observe(counter);
-});
-
+    mutationObserver.observe(document.body, { attributes: true, childList: true, subtree: true });
+  });
+})();
 // ----------------------------------------About
 
 (() => {
@@ -135,7 +153,7 @@ counters.forEach(counter => {
   const friction = 0.95;
 
   function tick() {
-    if(autoSpin) angle += 0.03;
+    if (autoSpin) angle += 0.03;
     angle += velocity;
     velocity *= friction;
     carousel.style.transform = `rotateY(${angle}deg)`;
@@ -147,7 +165,7 @@ counters.forEach(counter => {
   const scene = document.getElementById('testimonialScene');
   const start = x => { dragging = true; autoSpin = false; lastX = x; velocity = 0; };
   const move = x => {
-    if(!dragging) return;
+    if (!dragging) return;
     const dx = x - lastX;
     lastX = x;
     angle += dx * 0.3;
@@ -158,8 +176,8 @@ counters.forEach(counter => {
   scene.addEventListener('mousedown', e => start(e.clientX));
   window.addEventListener('mousemove', e => move(e.clientX));
   window.addEventListener('mouseup', end);
-  scene.addEventListener('touchstart', e => start(e.touches[0].clientX), {passive:true});
-  window.addEventListener('touchmove', e => move(e.touches[0].clientX), {passive:true});
+  scene.addEventListener('touchstart', e => start(e.touches[0].clientX), { passive: true });
+  window.addEventListener('touchmove', e => move(e.touches[0].clientX), { passive: true });
   window.addEventListener('touchend', end);
 
   // Navbar toggle
@@ -169,10 +187,10 @@ counters.forEach(counter => {
 })();
 // -----------------------------testimonial
 function openLightbox(img) {
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox').style.display = 'flex';
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').style.display = 'flex';
 }
 
 function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
+  document.getElementById('lightbox').style.display = 'none';
 }
