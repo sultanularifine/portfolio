@@ -17,24 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
         rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#ff4d4d',
-                        darkBg: '#050505',
-                        lightBg: '#f8fafc',
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
+
 
     <style>
         * {
@@ -46,9 +29,16 @@
             overflow-x: hidden;
             scroll-behavior: auto;
         }
-.text-primary{
-    color: #ff4d4d !important;
-}
+
+        .text-primary {
+            color: #ff4d4d !important;
+        }
+
+        .text {
+
+            font-size: 15px;
+        }
+
         #canvas-container {
             position: fixed;
             top: 0;
@@ -284,46 +274,54 @@
                     Address: Mithapukur, Barobazar, Kaligonj, Jhenaidah
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="mailto:sultanularifine@gmail.com"
-                        class="px-8 py-4 bg-primary text-white font-black rounded-xl shadow-xl hover:scale-105 transition-all uppercase tracking-widest text-xs">Email
-                        Me</a>
-                    <div class="flex flex-col border-l-2 border-primary pl-4 text-[10px] font-bold opacity-70">
+                    
+                    <a href="https://wa.me/8801766359998" target="_blank"
+                        class="px-8 py-4 bg-primary text-white font-black rounded-xl shadow-xl hover:scale-105 transition-all uppercase tracking-widest text-xs">
+                       Hire Me
+                    </a>
+                    <div class="mt-2 flex flex-col border-l-2 border-primary pl-4 text-[10px] font-bold opacity-70">
                         <span>+880 1766 359 998</span>
                         <span>github.com/sultanularifine</span>
                     </div>
                 </div>
             </div>
-           <div class="relative flex justify-center items-center order-1 lg:order-2 reveal">
-    <div class="relative w-full max-w-md aspect-square" id="hero-img-container">
-        
-        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary/5 rounded-full blur-xl animate-pulse z-0"></div>
+            <div class="relative flex justify-center items-center order-1 lg:order-2 reveal">
+                <div class="relative w-full max-w-md aspect-square" id="hero-img-container">
 
-        <img src="image.png" alt="Sultanul Arifine" 
-             class="w-full h-full object-contain z-10 relative"
-             style="clip-path: ellipse(70% 100% at 50% 0%);">
+                    <div
+                        class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary/5 rounded-full blur-xl animate-pulse z-0">
+                    </div>
 
-        <div class="absolute inset-0 border-[20px] border-primary/10 rounded-full scale-110 animate-pulse z-0"></div>
-        <div class="absolute inset-0 border-[1px] border-primary/20 rounded-full scale-125 z-0"></div>
+                    <img src="image.png" alt="Sultanul Arifine" class="w-full h-full object-contain z-10 relative"
+                        style="clip-path: ellipse(68% 100% at 50% 0%);">
 
-        <div class="absolute -right-4 top-10 z-20 glass p-3 rounded-2xl flex items-center gap-3 shadow-2xl animate-bounce-slow">
-            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-xl shadow-inner">
-                🏆
+                    <div
+                        class="absolute inset-0 border-[20px] border-primary/10 rounded-full scale-110 animate-pulse z-0">
+                    </div>
+                    <div class="absolute inset-0 border-[1px] border-primary/20 rounded-full scale-125 z-0"></div>
+
+                    <div
+                        class="absolute -right-4 top-10 z-20 glass p-3 rounded-2xl flex items-center gap-3 shadow-2xl animate-bounce-slow">
+                        <div
+                            class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-xl shadow-inner">
+                            🏆
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-black uppercase text-primary leading-none">Best Design</p>
+                            <p class="text-[8px] font-bold opacity-60 uppercase">Award Winner</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute -left-10 bottom-10 z-20 glass p-5 rounded-[2rem] flex flex-col items-center gap-1 shadow-2xl animate-float">
+                        <div class="text-primary text-xl">😊</div>
+                        <h4 class="text-2xl font-black leading-none">20+</h4>
+                        <p class="text-[8px] font-bold opacity-60 uppercase text-center leading-tight">Happy Satisfied
+                            <br> Customers
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div>
-                <p class="text-[10px] font-black uppercase text-primary leading-none">Best Design</p>
-                <p class="text-[8px] font-bold opacity-60 uppercase">Award Winner</p>
-            </div>
-        </div>
-
-        <div class="absolute -left-10 bottom-10 z-20 glass p-5 rounded-[2rem] flex flex-col items-center gap-1 shadow-2xl animate-float">
-            <div class="text-primary text-xl">😊</div>
-            <h4 class="text-2xl font-black leading-none">10K</h4>
-            <p class="text-[8px] font-bold opacity-60 uppercase text-center leading-tight">Happy Satisfied
-                <br> Customers
-            </p>
-        </div>
-    </div>
-</div>
         </div>
     </header>
 
@@ -335,13 +333,13 @@
             </div>
             <div class="grid lg:grid-cols-3 gap-12">
                 <div class="lg:col-span-2 glass p-8 md:p-12 rounded-[2rem] reveal">
-                    <p class="text-xl md:text-xl font-light leading-relaxed opacity-90">
+                    <p class="text font-light leading-relaxed opacity-90">
                         Motivated Web Developer with hands-on experience in <strong>Laravel, PHP, MySQL, and
                             WordPress</strong>. Skilled in graphic design (Adobe Illustrator & Photoshop). Experienced
                         in backend development, CRUD operations, API integration, debugging, and Git version control.
                     </p>
                 </div>
-                <div class="space-y-6 reveal">
+                <div class="space-y-6 reveal mt-4">
                     <div>
                         <h4 class="text-sm font-black uppercase text-primary mb-3">Education</h4>
                         <p class="text-sm font-bold opacity-70 leading-relaxed">
@@ -795,6 +793,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="glass p-8 rounded-[2rem] relative h-full">
+                            <span
+                                class="text-5xl text-primary opacity-20 absolute top-6 right-8 italic font-serif">"</span>
+                            <p class="text-sm italic opacity-80 leading-relaxed mb-6">"Arifine developed my WordPress
+                                website perfectly and graphic design also. Delivered on time and exceeded expectations.
+                                Proud to have 5+ satisfied WordPress projects and 30+ graphic Design!"</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                    SM</div>
+                                <div>
+                                    <h5 class="text-xs font-black uppercase">SM Mehedi Hassan</h5>
+                                    <p class="text-[10px] opacity-50">Freelance Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="swiper-pagination !-bottom-2"></div>
@@ -876,34 +892,42 @@
     <section id="contact-form" class="py-24 px-6 md:px-24">
         <div class="max-w-4xl mx-auto">
 
-            <div class="section-header reveal">
-                <h2>Get In Touch</h2>
-                <div class="line"></div>
+            <div class="section-header reveal mb-12">
+                <h2 class="text-3xl font-black">Get In Touch</h2>
+                <div class="w-24 h-1 bg-primary mt-2"></div>
             </div>
-            <div class="glass p-8 md:p-12 rounded-[3rem] reveal">
-                <form action="#" class="grid md:grid-cols-2 gap-6">
+
+            <div class="glass p-8 md:p-12 rounded-[3rem] reveal bg-white/5">
+                <form id="contactForm" class="grid md:grid-cols-2 gap-6">
                     <div class="flex flex-col gap-2">
                         <label class="text-[10px] font-black uppercase opacity-50 ml-2">Full Name</label>
-                        <input type="text" placeholder="Arifine Sultan"
-                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition text-sm">
+                        <input type="text" name="user_name" placeholder="Arifine Sultan"
+                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-blue-500 transition text-sm"
+                            required>
                     </div>
                     <div class="flex flex-col gap-2">
                         <label class="text-[10px] font-black uppercase opacity-50 ml-2">Email Address</label>
-                        <input type="email" placeholder="hello@example.com"
-                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition text-sm">
+                        <input type="email" name="user_email" placeholder="hello@example.com"
+                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-blue-500 transition text-sm"
+                            required>
                     </div>
                     <div class="md:col-span-2 flex flex-col gap-2">
                         <label class="text-[10px] font-black uppercase opacity-50 ml-2">Message</label>
-                        <textarea rows="5" placeholder="Tell me about your project..."
-                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition text-sm resize-none"></textarea>
+                        <textarea name="message" rows="5" placeholder="Tell me about your project..."
+                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-blue-500 transition text-sm resize-none"
+                            required></textarea>
                     </div>
                     <button type="submit"
-                        class="md:col-span-2 py-5 bg-primary text-white font-black rounded-2xl uppercase tracking-[0.3em] text-xs hover:scale-[1.02] transition-all">Send
-                        Message</button>
+                        class="md:col-span-2 py-5 bg-primary/10 border border-primary/20 text-primary  hover:text-white transition-all font-black uppercase tracking-[0.3em] text-xs hover:scale-[1.02] transition-all">
+
+                        Send Message
+                    </button>
                 </form>
             </div>
         </div>
     </section>
+
+
 
     <footer id="contact" class="relative pt-24 pb-12 px-6 md:px-24 overflow-hidden">
         <div
@@ -1087,9 +1111,9 @@
                 spaceBetween: 20,
                 loop: true,
                 autoplay: {
-                    delay: 4000, // সার্টিফিকেটের জন্য সময় একটু বেশি দেওয়া হয়েছে
+                    delay: 4000,
                     disableOnInteraction: false,
-                    pauseOnMouseEnter: true, // মাউস রাখলে স্লাইডার থেমে যাবে
+                    pauseOnMouseEnter: true,
                 },
                 navigation: {
                     nextEl: ".cert-next",
@@ -1104,6 +1128,44 @@
                     },
                 },
             });
+        });
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff4d4d',
+                        darkBg: '#050505',
+                        lightBg: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+            // Initialize EmailJS
+            (function () {
+                emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // এখানে তোমার EmailJS public key
+            })();
+
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function () {
+                    alert('Message sent successfully to sultnularifine@gmail.com!');
+                    document.getElementById('contactForm').reset();
+                }, function (error) {
+                    alert('Oops... something went wrong. Please try again.');
+                    console.log('FAILED...', error);
+                });
         });
     </script>
 </body>
