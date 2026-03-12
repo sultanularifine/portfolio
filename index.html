@@ -1,772 +1,1111 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sultanul Arifine</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sultanul Arifine | Web Developer & CEO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff4d4d',
+                        darkBg: '#050505',
+                        lightBg: '#f8fafc',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            cursor: none;
+        }
+
+        body {
+            transition: background-color 0.5s ease;
+            overflow-x: hidden;
+            scroll-behavior: auto;
+        }
+.text-primary{
+    color: #ff4d4d !important;
+}
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.2);
+        }
+
+        /* Modern Header Style */
+        .section-header {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .section-header .line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #ff4d4d;
+            border-radius: 2px;
+        }
+
+        #cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #ff4d4d;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10001;
+            transform: translate(-50%, -50%);
+        }
+
+        #cursor-outline {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 77, 77, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease-out;
+        }
+
+        .skill-badge {
+            @apply px-3 py-1 rounded-lg text-[10px] font-mono border border-primary/20 bg-primary/5 uppercase tracking-tighter;
+        }
+
+        .magnetic-btn {
+            display: inline-block;
+        }
+
+        /* Floating Social Dock */
+        .social-dock {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .dock-item {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            perspective: 1000px;
+        }
+
+        .dock-item:hover {
+            transform: translateX(-10px) rotateY(-20deg) scale(1.1);
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .dock-name {
+            position: absolute;
+            right: 65px;
+            background: #ff4d4d;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .dock-item:hover .dock-name {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Icons styling */
+        .dock-item svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        .swiper-pagination-bullet {
+            background: #ff4d4d !important;
+            /* Your primary color */
+            opacity: 0.3;
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            width: 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 
-<body>
-    <section>
-        <div class="body-nav">
-            <nav>
-                <div class="logo">Logo</div>
+<body class="bg-lightBg dark:bg-darkBg text-slate-900 dark:text-slate-100">
 
-                <div class="menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+    <div id="canvas-container"></div>
+
+    <nav class="fixed w-full z-50 px-4 md:px-12 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass p-4 rounded-2xl">
+            <span class="text-xl font-extrabold tracking-tighter text-primary uppercase">Arifine<span
+                    class="text-slate-400 dark:text-white">.dev</span></span>
+            <div class="hidden lg:flex space-x-6 text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
+                <a href="#home" class="hover:text-primary transition magnetic-btn">Home</a>
+                <a href="#about" class="hover:text-primary transition magnetic-btn">About</a>
+                <a href="#experience" class="hover:text-primary transition magnetic-btn">Experience</a>
+                <a href="#projects" class="hover:text-primary transition magnetic-btn">Projects</a>
+                <a href="#contact" class="hover:text-primary transition magnetic-btn">Contact</a>
+            </div>
+            <button id="theme-toggle" class="p-2.5 rounded-xl glass hover:border-primary magnetic-btn">🌓</button>
+        </div>
+    </nav>
+
+    <div class="social-dock">
+        <a href="https://wa.me/8801766359998" target="_blank"
+            class="glass dock-item text-green-500 hover:bg-green-500 hover:text-white">
+            <span class="dock-name">WhatsApp</span>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M20.52 3.48C18.267 1.227 15.267 0 12 0 5.373 0 0 5.373 0 12c0 2.667.72 5.147 2.08 7.333L0 24l4.667-2.08C6.853 23.28 9.333 24 12 24c6.627 0 12-5.373 12-12 0-3.267-1.227-6.267-3.48-8.52zm-8.48 17.52c-2.373 0-4.615-.72-6.52-2.08l-.467-.28-2.773.88.88-2.773-.28-.467C2.72 14.615 2 12.373 2 10c0-5.514 4.486-10 10-10 2.373 0 4.615.72 6.52 2.08l.467.28 2.773-.88-.88 2.773.28.467C21.28 9.385 22 11.627 22 14c0 5.514-4.486 10-10 10zm5.52-7.08c-.267-.133-1.58-.78-1.827-.867-.247-.088-.427-.133-.607.133-.18.267-.693.867-.853 1.04-.16.18-.32.2-.587.067-.267-.133-1.127-.414-2.147-1.32-.793-.706-1.327-1.58-1.48-1.847-.16-.267-.017-.413.117-.546.12-.12.267-.32.4-.48.133-.16.18-.267.267-.44.087-.18.04-.32-.02-.44-.067-.12-.607-1.46-.827-1.993-.22-.533-.44-.46-.607-.46-.16 0-.32-.02-.48-.02-.16 0-.44.067-.667.32-.227.253-.867.847-.867 2.067s.893 2.393 1.02 2.56c.133.16 2.2 3.36 5.333 4.713.747.32 1.327.513 1.78.657.747.24 1.427.207 1.96.127.6-.093 1.58-.647 1.8-1.273.22-.627.22-1.16.16-1.273-.067-.12-.24-.18-.507-.32z" />
+            </svg>
+        </a>
+
+        <a href="https://linkedin.com/in/sultanularifine" target="_blank"
+            class="glass dock-item text-blue-400 hover:bg-blue-600 hover:text-white">
+            <span class="dock-name">LinkedIn</span>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+        </a>
+
+        <a href="https://facebook.com/sultanularifine" target="_blank"
+            class="glass dock-item text-blue-500 hover:bg-blue-500 hover:text-white">
+            <span class="dock-name">Facebook</span>
+            <svg viewBox="0 0 24 24">
+                <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+        </a>
+
+        <a href="https://github.com/sultanularifine" target="_blank"
+            class="glass dock-item text-gray-800 hover:bg-gray-800 hover:text-white">
+            <span class="dock-name">GitHub</span>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12 .296c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.016-2.04-3.338.724-4.042-1.612-4.042-1.612-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.304.762-1.604-2.665-.3-5.466-1.332-5.466-5.931 0-1.31.468-2.381 1.235-3.222-.123-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.003-.404c1.018.005 2.043.138 3.003.404 2.291-1.552 3.297-1.23 3.297-1.23.654 1.653.242 2.873.119 3.176.77.841 1.233 1.912 1.233 3.222 0 4.609-2.804 5.628-5.476 5.921.43.37.814 1.102.814 2.222 0 1.604-.015 2.896-.015 3.286 0 .319.216.694.825.576C20.565 22.092 24 17.592 24 12.296c0-6.627-5.373-12-12-12" />
+            </svg>
+        </a>
+
+
+
+        <a href="#projects" class="glass dock-item text-primary hover:bg-primary hover:text-white">
+            <span class="dock-name">View Portfolio</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+        </a>
+    </div>
+
+    <header id="home" class="relative min-h-screen flex items-center px-6 md:px-24 pt-20">
+        <div class="grid lg:grid-cols-2 gap-12 w-full items-center">
+            <div class="z-10 order-2 lg:order-1 reveal">
+                <h3 class="text-2xl font-black mb-2 opacity-90">HELLO I AM</h3>
+                <h1 class="text-5xl  font-black mb-6 leading-none text-primary"><span id="typed-text"></span>
+                </h1>
+                <p class="text-xs md:text-sm font-bold opacity-60 mb-10 uppercase tracking-widest leading-relaxed">
+                    Web Developer | WordPress Designer | Graphic Designer<br>
+                    Address: Mithapukur, Barobazar, Kaligonj, Jhenaidah
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="mailto:sultanularifine@gmail.com"
+                        class="px-8 py-4 bg-primary text-white font-black rounded-xl shadow-xl hover:scale-105 transition-all uppercase tracking-widest text-xs">Email
+                        Me</a>
+                    <div class="flex flex-col border-l-2 border-primary pl-4 text-[10px] font-bold opacity-70">
+                        <span>+880 1766 359 998</span>
+                        <span>github.com/sultanularifine</span>
+                    </div>
                 </div>
-                <ul id="navList">
-                    <li><a href="#Home">Home</a></li>
-                    <li><a href="#Services">Services</a></li>
-                    <li><a href="#About">About</a></li>
-                    <li><a href="#Skills">Skills</a></li>
-                    <li><a href="#Portfolio">Portfolio</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="container"
-            style=" background: radial-gradient(circle at center, #0a0c1f 0%, #050613 100%); padding-top:90px;">
-            <marquee direction="left" scrollamount="7" onmouseover="this.stop()" onmouseout="this.start()">
-                <p><span
-                        style="color:rgb(255, 255, 255); font-family:segoe ui historic,segoe ui,helvetica,arial,sans-serif; font-size:15px"><strong>Website
-                            maintenance is in progress. We'll be back soon!</strong></span></p>
-            </marquee>
-        </div>
-    </section>
+            </div>
+           <div class="relative flex justify-center items-center order-1 lg:order-2 reveal">
+    <div class="relative w-full max-w-md aspect-square" id="hero-img-container">
+        
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary/5 rounded-full blur-xl animate-pulse z-0"></div>
 
-    <section class="hero body-hero" id="Home">
-        <div class="hero-left">
-            <p class="welcome">Welcome to my portfolio!</p>
-            <h1>Hello, my name’s<br> <span class="highlight"> Sultanul Arifine.</span></h1>
-            <p class="desc">
-                I'm a web developwe from Bangladesh. <br>
-                Currently working with <span class="mention">@Requin BD</span> as a CEO.
+        <img src="image.png" alt="Sultanul Arifine" 
+             class="w-full h-full object-contain z-10 relative"
+             style="clip-path: ellipse(70% 100% at 50% 0%);">
+
+        <div class="absolute inset-0 border-[20px] border-primary/10 rounded-full scale-110 animate-pulse z-0"></div>
+        <div class="absolute inset-0 border-[1px] border-primary/20 rounded-full scale-125 z-0"></div>
+
+        <div class="absolute -right-4 top-10 z-20 glass p-3 rounded-2xl flex items-center gap-3 shadow-2xl animate-bounce-slow">
+            <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-xl shadow-inner">
+                🏆
+            </div>
+            <div>
+                <p class="text-[10px] font-black uppercase text-primary leading-none">Best Design</p>
+                <p class="text-[8px] font-bold opacity-60 uppercase">Award Winner</p>
+            </div>
+        </div>
+
+        <div class="absolute -left-10 bottom-10 z-20 glass p-5 rounded-[2rem] flex flex-col items-center gap-1 shadow-2xl animate-float">
+            <div class="text-primary text-xl">😊</div>
+            <h4 class="text-2xl font-black leading-none">10K</h4>
+            <p class="text-[8px] font-bold opacity-60 uppercase text-center leading-tight">Happy Satisfied
+                <br> Customers
             </p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/8801766359998" target="_blank" class="btn primary">Hire Me</a>
-                <a href="#Portfolio" class="btn secondary">See my work</a>
-            </div>
         </div>
-
-        <div class="hero-right">
-            <div class="image-container">
-                <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                    alt="Ben" />
-            </div>
-            <div class="socials">
-                <span>Follow me on</span>
-                <a href="https://www.linkedin.com/in/sultanularifine" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.facebook.com/sultanularifine.official" aria-label="Dribbble"><i
-                        class="fab fa-facebook"></i></a>
-                <a href="https://github.com/sultanularifine" aria-label="Instagram"><i class="fab fa-github"></i></a>
-
-            </div>
+    </div>
+</div>
         </div>
-    </section>
+    </header>
 
-    <section id="Services">
-        <div class="body-services-carasol">
-            <div class="wrap">
-                <div class="title">Our Services</div>
-                <div class="scene" id="scene">
-                    <div class="carousel" id="carousel">
-                        <!-- Card 1: Web Design -->
-                        <article class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="service-icon" src="web-design.png" alt="Web Design" />
-                                    <h4>Web Design</h4>
-                                    <h3>Beautiful Websites</h3>
-                                    <p>Create stunning responsive websites for all devices.</p>
-                                </div>
-                                <div class="card-back">
-                                    <h3>Facilities</h3>
-                                    <ul class="facilities-list">
-                                        <li>Responsive layouts</li>
-                                        <li>UI/UX design</li>
-                                        <li>SEO friendly</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 2: WordPress -->
-                        <article class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="service-icon" src="https://img.icons8.com/color/96/wordpress.png"
-                                        alt="WordPress" />
-                                    <h4>WordPress Development</h4>
-                                    <h3>CMS Solutions</h3>
-                                    <p>Build powerful WordPress websites with custom themes and plugins.</p>
-                                </div>
-                                <div class="card-back">
-                                    <h3>Facilities</h3>
-                                    <ul class="facilities-list">
-                                        <li>Theme customization</li>
-                                        <li>Plugin development</li>
-                                        <li>WooCommerce integration</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 3: Graphic Design -->
-                        <article class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="service-icon" src="graphic-design.png" alt="Graphic Design" />
-                                    <h4>Graphic Design</h4>
-                                    <h3>Visual Branding</h3>
-                                    <p>Create logos, banners, and visual content for brands.</p>
-                                </div>
-                                <div class="card-back">
-                                    <h3>Facilities</h3>
-                                    <ul class="facilities-list">
-                                        <li>Logo design</li>
-                                        <li>Social media graphics</li>
-                                        <li>Print design</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 4: Digital Marketing -->
-                        <article class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="service-icon" src="digital-marketing.png" alt="Digital Marketing" />
-                                    <h4>Digital Marketing</h4>
-                                    <h3>Grow Your Business</h3>
-                                    <p>SEO, social media, and advertising to boost your reach.</p>
-                                </div>
-                                <div class="card-back">
-                                    <h3>Facilities</h3>
-                                    <ul class="facilities-list">
-                                        <li>SEO & SEM</li>
-                                        <li>Social media campaigns</li>
-                                        <li>Email marketing</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 5: UI/UX Design -->
-                        <article class="card">
-                            <div class="card-inner">
-                                <div class="card-front">
-                                    <img class="service-icon" src="uiux.png" alt="UI/UX Design" />
-                                    <h4>UI/UX Design</h4>
-                                    <h3>User Friendly</h3>
-                                    <p>Design intuitive interfaces and seamless experiences.</p>
-                                </div>
-                                <div class="card-back">
-                                    <h3>Facilities</h3>
-                                    <ul class="facilities-list">
-                                        <li>Wireframing & prototyping</li>
-                                        <li>Usability testing</li>
-                                        <li>Interactive UI design</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-
+    <section id="about" class="py-24 px-6 md:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>About Me</h2>
+                <div class="line"></div>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2 glass p-8 md:p-12 rounded-[2rem] reveal">
+                    <p class="text-xl md:text-xl font-light leading-relaxed opacity-90">
+                        Motivated Web Developer with hands-on experience in <strong>Laravel, PHP, MySQL, and
+                            WordPress</strong>. Skilled in graphic design (Adobe Illustrator & Photoshop). Experienced
+                        in backend development, CRUD operations, API integration, debugging, and Git version control.
+                    </p>
+                </div>
+                <div class="space-y-6 reveal">
+                    <div>
+                        <h4 class="text-sm font-black uppercase text-primary mb-3">Education</h4>
+                        <p class="text-sm font-bold opacity-70 leading-relaxed">
+                            B.Sc. in CSE, North Western University<br><br>
+                            HSC, Barobazar Degree College<br><br>
+                            SSC, Hat Barobazar High School
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- <section>
-        <div class=" body-priceing">
-            <h1 class="title">Choose Your Perfect Plan</h1>
-            <p class="subtitle">
-                Discover flexible subscription plans tailored to meet your business needs.
-            </p>
+    <section id="experience" class="py-24 px-6 md:px-24 ">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>Work Experience</h2>
+                <div class="line"></div>
+            </div>
+            <div class="space-y-8">
+                <div class="glass p-8 rounded-3xl reveal">
+                    <div class="flex flex-wrap justify-between items-start mb-4">
+                        <div>
+                            <span class="text-primary font-mono text-xs font-bold uppercase">Jan 2025 - Present</span>
+                            <h4 class="text-2xl font-black mt-1">Web Developer <span class="text-primary">@</span>
+                                Syntiq</h4>
+                            <p class="opacity-60 text-sm italic">Khulna (Part-time)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-primary reveal">
+                    <div class="flex flex-wrap justify-between mb-4">
+                        <div>
+                            <span class="text-primary font-mono text-xs font-bold uppercase">Dec 2024 - Jan 2025</span>
+                            <h4 class="text-2xl font-black mt-1">Web Developer <span class="text-primary">@</span>
+                                SoftHost IT</h4>
+                            <p class="opacity-60 text-sm">Dhaka (Remote)</p>
+                        </div>
+                    </div>
+                    <p class="text-sm opacity-80 mb-4">Contributed to 11 Mega Supermarket, Sarabela Distribution, Jewel
+                        Store BD, and ERP Systems.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl reveal">
+                    <span class="text-primary font-mono text-xs font-bold uppercase">July 2024 - Aug 2024</span>
+                    <h4 class="text-2xl font-black mt-1">Junior Software Engineer <span class="text-primary">@</span> BD
+                        Coder IT Park</h4>
+                    <ul class="text-sm opacity-70 mt-4 list-disc pl-5 space-y-2">
+                        <li>AI Chatbot: Developed Admin Panel with Ajax CRUD & Package Management.</li>
+                        <li>Touran: Built Tourist Management System features and validation rules.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="toggle">
-                <button class="active" id="monthlyBtn">Monthly</button>
-                <button id="annualBtn">Annual</button>
+    <section id="skills" class="py-24 px-6 md:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>Technical Mastery</h2>
+                <div class="line"></div>
             </div>
 
-            <div class="pricing-container">
-                <div class="card-pricing">
-                    <h2>Basic Plan</h2>
-                    <div class="price" data-monthly="$19/month" data-annual="$199/year">$19/month</div>
-                    <ul class="features">
-                        <li>Access to all basic features</li>
-                        <li>10 GB of cloud storage</li>
-                        <li>Email support</li>
-                        <li>Single user access</li>
-                    </ul>
-                    <button class="btn-pricing">Subscribe Now</button>
+            <div class="grid lg:grid-cols-3 gap-10">
+
+                <div
+                    class="glass p-8 rounded-[2.5rem] reveal border-b-4 border-transparent hover:border-primary transition-all group">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div
+                            class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary text-2xl group-hover:scale-110 transition-transform">
+                            ⚙️</div>
+                        <h3 class="text-xl font-black uppercase tracking-tighter">Backend <br><span
+                                class="text-primary">Core</span></h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>Laravel / PHP</span><span>95%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>MySQL / SQL</span><span>90%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>API Integration</span><span>85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-pricing">
-                    <h2>Professional Plan</h2>
-                    <div class="price" data-monthly="$49/month" data-annual="$499/year">$49/month</div>
-                    <ul class="features">
-                        <li>All features in Basic Plan</li>
-                        <li>50 GB of cloud storage</li>
-                        <li>Priority email and chat support</li>
-                        <li>Multi-user access (up to 5 users)</li>
-                    </ul>
-                    <button class="btn-pricing">Subscribe Now</button>
+                <div
+                    class="glass p-8 rounded-[2.5rem] reveal border-b-4 border-transparent hover:border-blue-500 transition-all group">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div
+                            class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 text-2xl group-hover:scale-110 transition-transform">
+                            🎨</div>
+                        <h3 class="text-xl font-black uppercase tracking-tighter">Frontend <br><span
+                                class="text-blue-500">Interface</span></h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>HTML5 / CSS3 / JS</span><span>92%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>Tailwind / Bootstrap</span><span>95%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>jQuery / AJAX</span><span>88%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-500 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="card-pricing">
-                    <h2>Enterprise Plan</h2>
-                    <div class="price" data-monthly="$99/month" data-annual="$999/year">$99/month</div>
-                    <ul class="features">
-                        <li>All features in Professional Plan</li>
-                        <li>Unlimited cloud storage</li>
-                        <li>24/7 dedicated support</li>
-                        <li>Unlimited user access</li>
-                    </ul>
-                    <button class="btn-pricing">Subscribe Now</button>
+                <div
+                    class="glass p-8 rounded-[2.5rem] reveal border-b-4 border-transparent hover:border-emerald-500 transition-all group">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div
+                            class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 text-2xl group-hover:scale-110 transition-transform">
+                            🚀</div>
+                        <h3 class="text-xl font-black uppercase tracking-tighter">CMS & <br><span
+                                class="text-emerald-500">Design</span></h3>
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>WordPress / Elementor</span><span>98%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>Adobe Illustrator</span><span>85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div
+                                class="flex justify-between mb-2 text-[10px] font-black uppercase tracking-widest opacity-60">
+                                <span>Git / Version Control</span><span>80%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                <div class="h-full bg-emerald-500 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-16 flex flex-wrap justify-center gap-4 reveal">
+                <span
+                    class="px-6 py-2 glass rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5 opacity-60">PHP
+                    8.x</span>
+                <span
+                    class="px-6 py-2 glass rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5 opacity-60">Object
+                    Oriented Programming</span>
+                <span
+                    class="px-6 py-2 glass rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5 opacity-60">MVC
+                    Architecture</span>
+                <span
+                    class="px-6 py-2 glass rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5 opacity-60">UI/UX
+                    Prototyping</span>
+                <span
+                    class="px-6 py-2 glass rounded-full text-[10px] font-bold uppercase tracking-widest border border-white/5 opacity-60">WooCommerce</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 md:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>Key Projects</h2>
+                <div class="line"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass rounded-[2rem] overflow-hidden group reveal">
+                    <div
+                        class="h-48 bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center font-black text-primary p-6 text-center italic">
+                        STUDENT OF THE YEAR</div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold">Olympiad System</h4>
+                        <p class="text-xs opacity-60 my-4 uppercase">Laravel, Ajax, Bootstrap</p>
+                        <a href="https://studentoftheyear.online"
+                            class="text-primary font-black text-xs uppercase tracking-widest border-b border-primary/20 pb-1 hover:border-primary transition-all">Live
+                            Link ↗</a>
+                    </div>
+                </div>
+                <div class="glass rounded-[2rem] overflow-hidden group border-t-2 border-primary reveal">
+                    <div
+                        class="h-48 bg-gradient-to-br from-blue-600/20 to-primary/20 flex items-center justify-center font-black text-blue-400 p-6 text-center italic uppercase">
+                        Avro E-Commerce</div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold">Dynamic E-com</h4>
+                        <p class="text-xs opacity-60 my-4 uppercase">Product & Cart Management</p>
+                        <a href="http://avro.studentsoftheyear.com"
+                            class="text-primary font-black text-xs uppercase tracking-widest border-b border-primary/20 pb-1 hover:border-primary transition-all">Live
+                            Link ↗</a>
+                    </div>
+                </div>
+                <div class="glass rounded-[2rem] overflow-hidden group reveal">
+                    <div
+                        class="h-48 bg-gradient-to-br from-emerald-600/20 to-primary/20 flex items-center justify-center font-black text-emerald-400 p-6 text-center italic">
+                        REQUIN BD</div>
+                    <div class="p-8">
+                        <h4 class="text-xl font-bold">Agency Site</h4>
+                        <p class="text-xs opacity-60 my-4 uppercase">Intern Management Portal</p>
+                        <a href="http://requinbd.com"
+                            class="text-primary font-black text-xs uppercase tracking-widest border-b border-primary/20 pb-1 hover:border-primary transition-all">Live
+                            Link ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="text-xs font-black uppercase text-primary mt-16 mb-8 reveal">
+                WordPress & Client Works
+                <span class="text-info text-[10px] font-normal">(Live Link)</span>
+            </h4>
+            <div class="flex flex-wrap gap-4 reveal">
+                <a href="https://uc-chembd.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">UC-Chem BD</a>
+                <a href="https://fernygrovevet.com.au"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Fernygrove Vet</a>
+                <a href="https://secondpurchase.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Second Purchase</a>
+                <a href="https://www.averontradesinternational.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Averon Trades
+                    International</a>
+                <a href="https://bdsmartunion.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">BD Smart Union</a>
+                <a href="https://rehabphysiocare.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Rehab Physio Care</a>
+                <a href="https://psdibd.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">PSDI BD</a>
+                <a href="https://dynamic.edu.bd"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Dynamic EDU</a>
+                <a href="https://kmmusicstudio.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">KM Music Studio</a>
+                <a href="https://saifshoeb.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Saif Shoeb</a>
+                <a href="https://cincinnaticarpetrepair.com"
+                    class="glass px-4 py-2 rounded-xl text-[10px] hover:text-primary transition">Cincinnati Carpet
+                    Repair</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="py-24 px-6 md:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>References</h2>
+                <div class="line"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass p-8 rounded-3xl reveal">
+                    <h5 class="text-lg font-black">Sajol Mahmud</h5>
+                    <p class="text-xs opacity-60 uppercase mb-4">Senior Software Engineer | Leaping Logic</p>
+                    <p class="text-xs font-mono text-primary">sajolmahmud010@gmail.com</p>
+                </div>
+                <div class="glass p-8 rounded-3xl reveal">
+                    <h5 class="text-lg font-black">Mehedi Hassan Oni</h5>
+                    <p class="text-xs opacity-60 uppercase mb-4">Web Developer | Leaping Logic</p>
+                    <p class="text-xs font-mono text-primary">mehedi.hassan.oni98@gmail.com</p>
                 </div>
             </div>
         </div>
     </section> -->
 
-    <section id="pricing">
-        <div class=" body-priceing">
-            <h1 class="title">Choose Your Perfect Plan</h1>
-            <p class="subtitle">
-                Pick the ideal plan for your digital service needs and grow your business.
-            </p>
-
-            <div class="toggle">
-                <button class="active" id="monthlyBtn"> <!-- Monthly --> Price </button>
-                <!-- <button id="annualBtn">Annual</button> -->
+    <section id="certificates" class="py-24 px-6 md:px-24  overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>My Certificates</h2>
+                <div class="line"></div>
             </div>
 
-            <div class="pricing-container">
-                <div class="card-pricing">
-                    <h2>Web Design Plan</h2>
-                    <div class="price" data-monthly="$100/Per page" data-annual="$2900/year">$100/Per page</div>
-                    <ul class="features">
-                        <li>Responsive and modern layouts</li>
-                        <li>6 Section</li>
-                        <li>Custom UI/UX designs</li>
-                        <li>SEO friendly websites</li>
-                        <li>Basic support included</li>
-                    </ul>
-                    <a href="https://wa.me/8801766359998" target="_blank"><button class="btn-pricing">Subscribe
-                            Now</button></a>
+            <div class="swiper certificate-swiper reveal">
+                <div class="swiper-wrapper py-10">
+
+                    <div class="swiper-slide">
+                        <div class="glass p-4 rounded-2xl group hover:border-primary transition-all h-full">
+                            <div class="aspect-video bg-slate-800 rounded-xl mb-4 overflow-hidden relative">
+                                <img src="cert1.jpg" alt="Laravel Certificate"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xs font-black uppercase tracking-tighter">Laravel Web Development</h4>
+                            <p class="text-[10px] opacity-50 uppercase font-bold">BetaCoders IT</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="glass p-4 rounded-2xl group hover:border-primary transition-all h-full">
+                            <div class="aspect-video bg-slate-800 rounded-xl mb-4 overflow-hidden relative">
+                                <img src="cert2.jpg" alt="Graphics Certificate"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xs font-black uppercase tracking-tighter">Graphic Design Mastery</h4>
+                            <p class="text-[10px] opacity-50 uppercase font-bold">Creative IT Institute</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="glass p-4 rounded-2xl group hover:border-primary transition-all h-full">
+                            <div class="aspect-video bg-slate-800 rounded-xl mb-4 overflow-hidden relative">
+                                <img src="cert3.jpg" alt="WordPress Certificate"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xs font-black uppercase tracking-tighter">WordPress Theme Customization</h4>
+                            <p class="text-[10px] opacity-50 uppercase font-bold">Online Academy</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="glass p-4 rounded-2xl group hover:border-primary transition-all h-full">
+                            <div class="aspect-video bg-slate-800 rounded-xl mb-4 overflow-hidden relative">
+                                <img src="cert4.jpg" alt="PHP Certificate"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <h4 class="text-xs font-black uppercase tracking-tighter">Advanced PHP & MySQL</h4>
+                            <p class="text-[10px] opacity-50 uppercase font-bold">Coding Institute</p>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="card-pricing">
-                    <h2>WordPress Development</h2>
-                    <div class="price" data-monthly="$80/Per page" data-annual="$3900/year">$80/Per page</div>
-                    <ul class="features">
-                        <li>Custom themes & plugin development</li>
-                        <li>WooCommerce integration</li>
-                        <li>Secure & optimized sites</li>
-                        <li>Support & maintenance included</li>
-                    </ul>
-                    <a href="https://wa.me/8801766359998" target="_blank"><button class="btn-pricing">Subscribe
-                            Now</button></a>
+                <div class="flex justify-center gap-4 mt-8">
+                    <div
+                        class="cert-prev w-10 h-10 glass rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+                        ←</div>
+                    <div
+                        class="cert-next w-10 h-10 glass rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+                        →</div>
                 </div>
-
-                <div class="card-pricing">
-                    <h2>Graphic Design</h2>
-                    <div class="price" data-monthly="$25/Per design" data-annual="$2500/year">$25/Per design</div>
-                    <ul class="features">
-                        <li>Logo & branding design</li>
-                        <li>Social media graphics</li>
-                        <li>Print and digital media design</li>
-                        <li>Unlimited revisions</li>
-                    </ul>
-                    <a href="https://wa.me/8801766359998" target="_blank"><button class="btn-pricing">Subscribe
-                            Now</button></a>
-                </div>
-
             </div>
         </div>
     </section>
-    <section class="about-section" id="About">
-        <div class="about-container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
+    <section id="testimonials" class="py-24 px-6 md:px-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>Client Testimonials</h2>
+                <div class="line"></div>
+            </div>
 
-                <!-- Right photo -->
-                <div class="about-right">
-                    <div class="photo-card">
-                        <img src="https://media.licdn.com/dms/image/v2/D5603AQFQDWj-RE7JzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726267035596?e=2147483647&v=beta&t=tYthFLBaGKa-Sa6fBSpgDpsTlDwPgfLyf0LWNcpysLk"
-                            alt="Your Photo">
-                    </div>
-                </div>
+            <div class="swiper testimonial-swiper reveal">
+                <div class="swiper-wrapper py-10">
 
-                <!-- Left card -->
-                <div class="about-left">
-                    <div class="about-card">
-                        <p>I am a passionate developer and designer delivering modern web solutions with creativity and
-                            precision.</p>
-                        <p>I focus on user-centric design, responsive layouts, and cutting-edge technologies to bring
-                            ideas to life.</p>
-                        <p>And......</p>
-
-                        <!-- Stats -->
-                        <div class="stats">
-                            <div class="stat">
-                                <h3 class="counter" data-target="3">0</h3>
-                                <p>Years Experience</p>
-                            </div>
-                            <div class="stat">
-                                <h3 class="counter" data-target="25">0</h3>
-                                <p>Projects Completed</p>
-                            </div>
-                            <div class="stat">
-                                <h3 class="counter" data-target="99">0</h3>
-                                <p>Client Satisfaction %</p>
+                    <div class="swiper-slide">
+                        <div class="glass p-8 rounded-[2rem] relative h-full">
+                            <span
+                                class="text-5xl text-primary opacity-20 absolute top-6 right-8 italic font-serif">"</span>
+                            <p class="text-sm italic opacity-80 leading-relaxed mb-6">"Sultanul is a highly skilled
+                                developer. He delivered my e-commerce project on time with an amazing admin panel."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                    JD</div>
+                                <div>
+                                    <h5 class="text-xs font-black uppercase">John Doe</h5>
+                                    <p class="text-[10px] opacity-50">CEO, Tech Solutions</p>
+                                </div>
                             </div>
                         </div>
-
-                        <button class="btn">Learn More</button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- about -->
 
-    <section id="Skills" class="skills-body">
-
-        <h1>My Skills, Experience & Education</h1>
-
-        <div class="skills-tab-buttons">
-            <button class="skills-tab-button active" data-tab="skills">Skills</button>
-            <button class="skills-tab-button" data-tab="experience">Experience</button>
-            <button class="skills-tab-button" data-tab="education">Education</button>
-        </div>
-
-        <!-- Skills Tab -->
-        <div class="skills-tab-content active" id="skills">
-            <div class="skills-tab-card">
-                <h3>Web Development</h3>
-                <p>HTML, CSS, JS, PHP, Laravel, React.js</p>
-            </div>
-            <div class="skills-tab-card">
-                <h3>WordPress</h3>
-                <p>Custom Themes, Plugins, WooCommerce</p>
-            </div>
-            <div class="skills-tab-card">
-                <h3>Graphic Design</h3>
-                <p>Photoshop, Illustrator, Figma</p>
-            </div>
-        </div>
-
-        <!-- Experience Tab -->
-        <div class="skills-tab-content" id="experience">
-            <div class="skills-tab-card">
-                <h3>SoftHost IT / Dhaka (Remote)</h3>
-                <p>Web Developer | Dec 2024 – Jan 2025</p>
-                <ul>
-                    <li>Worked on multiple web development projects, including: Jewel Store BD, ERP System, BFH
-                        HostZone, Sarabela Distribution, 11 Mega Supermarket, Motiar Traders, SBSSL Khulna</li>
-                    <li>MKB BsoftBD</li>
-                    <li>Developed and optimized user-friendly interfaces.</li>
-                    <li>Implemented backend functionalities to enhance system performance.</li>
-                </ul>
-                <button class="skills-download-btn">Download CV</button>
-            </div>
-            <div class="skills-tab-card">
-                <h3>bdCoder IT Park / Khulna</h3>
-                <p>Junior Software Engineer | Jul 2024 – Aug 2024</p>
-                <ul>
-                    <li>Developed an e-commerce AI Chatbot with CRUD operations using Ajax.</li>
-                    <li>Built a tourist management system (Touran) with various admin functionalities.</li>
-                </ul>
-
-            </div>
-            <div class="skills-tab-card">
-                <h3>BetaCoders / Khulna</h3>
-                <p>Web Development Intern | Oct 2023 – Feb 2024</p>
-                <ul>
-                    <li>Gained experience in frontend development, PHP, and OOP.</li>
-                    <li>Worked on the Education Consultancy Management System project (CVIEDU).</li>
-                </ul>
-
-            </div>
-        </div>
-
-        <!-- Education Tab -->
-        <div class="skills-tab-content" id="education">
-            <div class="skills-tab-card">
-                <h3>Bachelor of Science</h3>
-                <p>Computer Science and Engineering | North Western University | 2023</p>
-            </div>
-            <div class="skills-tab-card">
-                <h3>HSC Science</h3>
-                <p>Barobazer Degree College | 2019</p>
-            </div>
-            <div class="skills-tab-card">
-                <h3>SSC Science</h3>
-                <p>Hat Barobazar High School | 2016</p>
-            </div>
-        </div>
-    </section>
-    <!-- certificate  -->
-    <section id="certificates" class="certificate-section">
-        <h2 class="section-title">My Certificates</h2>
-        <div class="certificate-wrapper">
-            <div class="certificate-carousel">
-                <!-- Original Certificates -->
-                <div class="certificate-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHc5P5INgl4Lw/feedshare-shrink_800/feedshare-shrink_800/0/1703616878900?e=2147483647&v=beta&t=OwbcVOTmVW9iVuw2rsSafVStlBC93FQ_XyXh3si2HYw"
-                        alt="Certificate" onclick="openLightbox(this)">
-                    <p>Certificate Title</p>
-                </div>
-                <div class="certificate-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHc5P5INgl4Lw/feedshare-shrink_800/feedshare-shrink_800/0/1703616878900?e=2147483647&v=beta&t=OwbcVOTmVW9iVuw2rsSafVStlBC93FQ_XyXh3si2HYw"
-                        onclick="openLightbox(this)">
-                    <p>Certificate Title 2</p>
-                </div>
-                <div class="certificate-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHc5P5INgl4Lw/feedshare-shrink_800/feedshare-shrink_800/0/1703616878900?e=2147483647&v=beta&t=OwbcVOTmVW9iVuw2rsSafVStlBC93FQ_XyXh3si2HYw"
-                        alt="Certificate 3" onclick="openLightbox(this)">
-                    <p>Certificate Title 3</p>
-                </div>
-
-                <!-- Duplicate for seamless infinite loop -->
-                <div class="certificate-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHc5P5INgl4Lw/feedshare-shrink_800/feedshare-shrink_800/0/1703616878900?e=2147483647&v=beta&t=OwbcVOTmVW9iVuw2rsSafVStlBC93FQ_XyXh3si2HYw"
-                        alt="Certificate" onclick="openLightbox(this)">
-                    <p>Certificate Title</p>
-                </div>
-                <div class="certificate-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHc5P5INgl4Lw/feedshare-shrink_800/feedshare-shrink_800/0/1703616878900?e=2147483647&v=beta&t=OwbcVOTmVW9iVuw2rsSafVStlBC93FQ_XyXh3si2HYw"
-                        alt="Certificate 2" onclick="openLightbox(this)">
-                    <p>Certificate Title 2</p>
-                </div>
-                <div class="certificate-card">
-                    <img src="https://media.licdn.com/dms/image/v2/D5622AQHc5P5INgl4Lw/feedshare-shrink_800/feedshare-shrink_800/0/1703616878900?e=2147483647&v=beta&t=OwbcVOTmVW9iVuw2rsSafVStlBC93FQ_XyXh3si2HYw"
-                        onclick="openLightbox(this)">
-                    <p>Certificate Title 3</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Lightbox -->
-    <div id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="">
-    </div>
-    <!-- Skills -->
-    <section id="Portfolio" class="body-portfolio">
-
-        <h1 class="section-title">My Portfolio</h1>
-
-        <div class="tab-buttons">
-            <button class="tab-button active" data-tab="wordpress">WordPress</button>
-            <button class="tab-button" data-tab="webdev">Web Development</button>
-            <button class="tab-button" data-tab="graphic">Graphic Design</button>
-        </div>
-
-        <!-- WordPress Tab -->
-        <div class="tab-content active" id="wordpress">
-        </div>
-
-        <!-- Web Development Tab -->
-        <div class="tab-content" id="webdev">
-        </div>
-
-        <!-- Graphic Design Tab -->
-        <div class="tab-content" id="graphic">
-        </div>
-
-        <!-- Modal -->
-        <div id="modal" class="modal">
-            <img src="" alt="Large Image">
-        </div>
-
-    </section>
-
-    <!-- Testimonial Carousel Section -->
-    <section id="testimonial" class="testimonial-section">
-        <h2 class="section-title">Testimonials</h2>
-        <div class="testimonial-wrapper">
-            <div class="testimonial-carousel" id="testimonial-carousel">
-                <!-- Card 1 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=1" alt="Fardin Hassan Rocky">
+                    <div class="swiper-slide">
+                        <div class="glass p-8 rounded-[2rem] relative h-full">
+                            <span
+                                class="text-5xl text-primary opacity-20 absolute top-6 right-8 italic font-serif">"</span>
+                            <p class="text-sm italic opacity-80 leading-relaxed mb-6">"Excellent graphic design skills.
+                                He created our brand identity perfectly. Highly recommended for any creative work."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                    SA</div>
+                                <div>
+                                    <h5 class="text-xs font-black uppercase">Sarah Ahmed</h5>
+                                    <p class="text-[10px] opacity-50">Marketing Manager</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p>"Sultanul is an amazing developer. His work on our website exceeded expectations!"</p>
-                    <h4>Fardin Hassan Rocky</h4>
-                    <span class="designation">Presedent, Requin BD</span>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=2" alt="Md Mukul Hossen">
+                    <div class="swiper-slide">
+                        <div class="glass p-8 rounded-[2rem] relative h-full">
+                            <span
+                                class="text-5xl text-primary opacity-20 absolute top-6 right-8 italic font-serif">"</span>
+                            <p class="text-sm italic opacity-80 leading-relaxed mb-6">"His Laravel expertise is
+                                outstanding. The automation systems he built for our office saved us hundreds of hours."
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                    MK</div>
+                                <div>
+                                    <h5 class="text-xs font-black uppercase">Michael Knight</h5>
+                                    <p class="text-[10px] opacity-50">CTO, SoftHost IT</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p>"Highly professional and delivers on time. I would recommend him to anyone."</p>
-                    <h4>Md Mukul Hossen</h4>
-                    <span class="designation">Legendary Footballer</span>
-                </div>
 
-                <!-- Card 3 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=3" alt="Thamid Tahmid">
+                    <div class="swiper-slide">
+                        <div class="glass p-8 rounded-[2rem] relative h-full">
+                            <span
+                                class="text-5xl text-primary opacity-20 absolute top-6 right-8 italic font-serif">"</span>
+                            <p class="text-sm italic opacity-80 leading-relaxed mb-6">"One of the best WordPress
+                                designers I have worked with. Responsive, clean, and modern aesthetics."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">
+                                    RB</div>
+                                <div>
+                                    <h5 class="text-xs font-black uppercase">Robert Bruce</h5>
+                                    <p class="text-[10px] opacity-50">Freelance Client</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p>"Creative, skilled, and a pleasure to work with. Truly a top-tier designer."</p>
-                    <h4>Thamid Tahmid</h4>
-                    <span class="designation">President, BSA</span>
-                </div>
 
-                <!-- Card 4 -->
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=4" alt="Another Client">
-                    </div>
-                    <p>"Amazing work ethic and attention to detail. Loved working together."</p>
-                    <h4>Another Client</h4>
-                    <span class="designation">Project Manager</span>
                 </div>
-
-                <!-- duplicate for infinite loop -->
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=1" alt="Fardin Hassan Rocky">
-                    </div>
-                    <p>"Sultanul is an amazing developer. His work on our website exceeded expectations!"</p>
-                    <h4>Fardin Hassan Rocky</h4>
-                    <span class="designation">Presedent, Requin BD</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=2" alt="Md Mukul Hossen">
-                    </div>
-                    <p>"Highly professional and delivers on time. I would recommend him to anyone."</p>
-                    <h4>Md Mukul Hossen</h4>
-                    <span class="designation">Legendary Footballer</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=3" alt="Thamid Tahmid">
-                    </div>
-                    <p>"Creative, skilled, and a pleasure to work with. Truly a top-tier designer."</p>
-                    <h4>Thamid Tahmid</h4>
-                    <span class="designation">President, BSA</span>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-img">
-                        <img src="https://i.pravatar.cc/100?img=4" alt="Another Client">
-                    </div>
-                    <p>"Amazing work ethic and attention to detail. Loved working together."</p>
-                    <h4>Another Client</h4>
-                    <span class="designation">Project Manager</span>
-                </div>
+                <div class="swiper-pagination !-bottom-2"></div>
             </div>
         </div>
     </section>
 
 
 
-    <!-- contact  -->
-    <section id="Contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle">Have a question or want to work together? Send me a message!</p>
+    <section id="pricing" class="py-24 px-6 md:px-24 bg-slate-500/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header reveal">
+                <h2>Choose Your Perfect Plan</h2>
+                <div class="line"></div>
+            </div>
 
-            <div class="contact-content">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
 
+                <div
+                    class="glass p-10 rounded-[2.5rem] reveal hover:scale-105 transition-all border-t-4 border-transparent hover:border-primary flex flex-col h-full">
+                    <h4 class="text-xs font-black uppercase text-primary mb-2">Basic</h4>
+                    <p class="text-[10px] font-bold opacity-50 mb-4 uppercase">Perfect for small projects or a simple
+                        website.</p>
+                    <h3 class="text-4xl font-black mb-6">$150<span class="text-sm opacity-40">/Project</span></h3>
+                    <ul class="space-y-4 text-xs font-bold opacity-70 mb-10 uppercase tracking-widest flex-grow">
+                        <li>✓ Simple Laravel / WordPress</li>
+                        <li>✓ Responsive Design</li>
+                        <li>✓ Basic SEO Setup</li>
+                        <li>✓ 1 Week Delivery</li>
+                    </ul>
+                    <button
+                        class="w-full py-4 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all font-black rounded-xl text-[10px] uppercase tracking-widest">Choose
+                        Plan</button>
+                </div>
 
-                <form class="contact-form" action="mailto:sultanularifine@gmail.com" method="post" enctype="text/plain">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your name">
+                <div
+                    class="glass p-10 rounded-[2.5rem] reveal scale-105 md:scale-110 border-2 border-primary relative overflow-hidden z-10 bg-primary/5 flex flex-col h-full">
+                    <div
+                        class="absolute top-4 right-[-35px] bg-primary text-white text-[8px] font-black py-1 px-10 rotate-45 uppercase">
+                        Best Value</div>
+                    <h4 class="text-xs font-black uppercase text-primary mb-2">Standard</h4>
+                    <p class="text-[10px] font-bold opacity-50 mb-4 uppercase">Ideal for growing businesses needing
+                        custom functionality.</p>
+                    <h3 class="text-4xl font-black mb-6">$300<span class="text-sm opacity-40">/Project</span></h3>
+                    <ul class="space-y-4 text-xs font-bold opacity-70 mb-10 uppercase tracking-widest flex-grow">
+                        <li>✓ Custom Laravel / WordPress</li>
+                        <li>✓ Modern UI/UX Design</li>
+                        <li>✓ Graphic Design Integration</li>
+                        <li>✓ API / Dynamic Content</li>
+                        <li>✓ 2 Weeks Delivery</li>
+                    </ul>
+                    <button
+                        class="w-full py-4 bg-primary text-white font-black rounded-xl text-[10px] uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-105 transition-all">Choose
+                        Plan</button>
+                </div>
 
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                <div
+                    class="glass p-10 rounded-[2.5rem] reveal hover:scale-105 transition-all border-t-4 border-transparent hover:border-primary flex flex-col h-full">
+                    <h4 class="text-xs font-black uppercase text-primary mb-2">Premium</h4>
+                    <p class="text-[10px] font-bold opacity-50 mb-4 uppercase">Best for enterprise solutions and
+                        customized projects.</p>
+                    <h3 class="text-4xl font-black mb-6">$500+<span class="text-sm opacity-40">/Project</span></h3>
+                    <ul class="space-y-4 text-xs font-bold opacity-70 mb-10 uppercase tracking-widest flex-grow">
+                        <li>✓ Advanced Web Application</li>
+                        <li>✓ Full UI/UX & Prototyping</li>
+                        <li>✓ Branding & Design</li>
+                        <li>✓ CRM & Custom Modules</li>
+                        <li>✓ Priority Support & 3 Weeks</li>
+                    </ul>
+                    <button
+                        class="w-full py-4 bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all font-black rounded-xl text-[10px] uppercase tracking-widest">Choose
+                        Plan</button>
+                </div>
 
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" placeholder="Enter subject">
+            </div>
+        </div>
+    </section>
 
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required
-                        placeholder="Your message here..."></textarea>
+    <section id="contact-form" class="py-24 px-6 md:px-24">
+        <div class="max-w-4xl mx-auto">
 
-                    <button type="submit" class="btn-contact">Send Message</button>
+            <div class="section-header reveal">
+                <h2>Get In Touch</h2>
+                <div class="line"></div>
+            </div>
+            <div class="glass p-8 md:p-12 rounded-[3rem] reveal">
+                <form action="#" class="grid md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-[10px] font-black uppercase opacity-50 ml-2">Full Name</label>
+                        <input type="text" placeholder="Arifine Sultan"
+                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition text-sm">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-[10px] font-black uppercase opacity-50 ml-2">Email Address</label>
+                        <input type="email" placeholder="hello@example.com"
+                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition text-sm">
+                    </div>
+                    <div class="md:col-span-2 flex flex-col gap-2">
+                        <label class="text-[10px] font-black uppercase opacity-50 ml-2">Message</label>
+                        <textarea rows="5" placeholder="Tell me about your project..."
+                            class="bg-white/5 border border-white/10 p-4 rounded-xl outline-none focus:border-primary transition text-sm resize-none"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="md:col-span-2 py-5 bg-primary text-white font-black rounded-2xl uppercase tracking-[0.3em] text-xs hover:scale-[1.02] transition-all">Send
+                        Message</button>
                 </form>
             </div>
         </div>
     </section>
-    <!-- Footer Section -->
-    <footer class="footer-section">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>MyCompany</h3>
-                <p>Providing quality services & solutions to help your business grow.</p>
-            </div>
 
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#Home">Home</a></li>
-                    <li><a href="#Services">Services</a></li>
-                    <li><a href="#About">About</a></li>
-                    <li><a href="#Skills">Skills</a></li>
-                    <li><a href="#Portfolio">Portfolio</a></li>
-                    <li><a href="#Contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <p>Phone/WhatsApp: <a href="https://wa.me/8801766359998" target="_blank">01766359998</a></p>
-                <p>Email: <a href="mailto:sultanularifine@gmail.com">sultanularifine@gmail.com</a></p>
-
-                <p>Address: Barobazar, Kaligonj, Jhenaidah</p>
-                <p>Feel free to reach out anytime. I will respond as soon as possible.</p>
-            </div>
+    <footer id="contact" class="relative pt-24 pb-12 px-6 md:px-24 overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent">
         </div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
 
-        <div class="footer-bottom">
-            <p>© 2025 Sultanul Arifine. All Rights Reserved.</p>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-12 mb-16">
+
+                <div class="lg:col-span-2 reveal">
+                    <a href="#" class="text-3xl font-black tracking-tighter text-primary uppercase mb-6 block">
+                        Arifine<span class="text-slate-400 dark:text-white">.dev</span>
+                    </a>
+                    <p class="text-sm opacity-60 leading-relaxed max-w-md mb-8 font-medium">
+                        As a skilled Laravel Developer and Graphic Designer, I believe that coding and design complement
+                        each other. I am always ready to bring your ideas to life.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://github.com/sultanularifine"
+                            class="w-10 h-10 glass rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 magnetic-btn border border-white/5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/sultanularifine"
+                            class="w-10 h-10 glass rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 magnetic-btn border border-white/5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h4 class="text-xs font-black uppercase text-primary mb-6 tracking-widest">Navigation</h4>
+                    <ul class="space-y-4 text-[11px] font-bold uppercase tracking-widest opacity-60">
+                        <li><a href="#home"
+                                class="hover:text-primary hover:translate-x-2 transition-all inline-block">Home</a></li>
+                        <li><a href="#about"
+                                class="hover:text-primary hover:translate-x-2 transition-all inline-block">About Me</a>
+                        </li>
+                        <li><a href="#projects"
+                                class="hover:text-primary hover:translate-x-2 transition-all inline-block">Portfolio</a>
+                        </li>
+                        <li><a href="#pricing"
+                                class="hover:text-primary hover:translate-x-2 transition-all inline-block">Pricing
+                                Plans</a></li>
+                    </ul>
+                </div>
+
+                <div class="reveal">
+                    <h4 class="text-xs font-black uppercase text-primary mb-6 tracking-widest">Contact Info</h4>
+                    <ul class="space-y-4 text-[11px] font-bold opacity-60">
+                        <li class="flex items-center gap-3">
+                            <span class="text-primary">📍</span> Mithapukur, Jhenaidah
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-primary">📧</span> sultanularifine@gmail.com
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-primary">📞</span> +880 1766 359 998
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-6 ">
+                <p class="text-[10px] font-mono uppercase tracking-[0.3em] opacity-40">
+                    &copy; 2026 Sultanul Arifine. All Rights Reserved.
+                </p>
+                <div class="flex items-center gap-2">
+                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                    <span class="text-[9px] font-black uppercase tracking-widest opacity-60">Available for Freelance
+                        Projects</span>
+                </div>
+            </div>
         </div>
     </footer>
 
-
-    <script src="script.js"></script>
-    <!-- portfollio -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Tabs
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
+        // --- Custom Cursor ---
+        const dot = document.getElementById('cursor-dot');
+        const outline = document.getElementById('cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            gsap.to(dot, { x: e.clientX, y: e.clientY, duration: 0.1 });
+            gsap.to(outline, { x: e.clientX, y: e.clientY, duration: 0.3 });
+        });
 
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    const tab = button.getAttribute('data-tab');
-                    tabContents.forEach(content => {
-                        content.classList.remove('active');
-                        if (content.id === tab) content.classList.add('active');
-                    });
-                });
+        // --- GSAP Scroll Reveal (Veshe othar effect) ---
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelectorAll('.reveal').forEach((el) => {
+            gsap.to(el, {
+                opacity: 1, y: 0, duration: 1, ease: "power3.out",
+                scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" }
             });
+        });
 
-            // Modal
-            const modal = document.getElementById('modal');
-            const modalImg = modal.querySelector('img');
-
-            document.addEventListener('click', e => {
-                if (e.target.tagName === 'IMG' && e.target.closest('.portfolio-card')) {
-                    modalImg.src = e.target.src;
-                    modal.classList.add('active');
-                }
+        // --- Magnetic Buttons ---
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3 });
             });
-            modal.addEventListener('click', () => modal.classList.remove('active'));
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, { x: 0, y: 0, duration: 0.3 });
+            });
+        });
 
-            // Data
-            const data = {
-                wordpress: [
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 1", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 2", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 3", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "WP Project 4", link: "#" }
-                ],
-                webdev: [
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 1", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 2", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 3", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Web Dev 4", link: "#" }
-                ],
-                graphic: [
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 1", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 2", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 3", link: "#" },
-                    { img: "https://colorlib.com/wp/wp-content/uploads/sites/2/videograph-free-template-408x322.jpg", title: "Graphic 4", link: "#" }
-                ]
-            };
+        // --- Typed.js ---
+        new Typed('#typed-text', {
+            strings: ['SULTANUL ARIFINE', 'PHP-LARAVEL EXPERT', 'ELEMENTOR EXPART ', 'GRAPHIC DESIGNER', 'DIGITAL MARKETING EXPART'],
+            typeSpeed: 60, backSpeed: 40, loop: true
+        });
 
-            function renderTab(tab) {
-                const container = document.getElementById(tab);
-                container.innerHTML = '';
-                data[tab].forEach(card => {
-                    const div = document.createElement('div');
-                    div.classList.add('portfolio-card');
-                    // Add tab-specific class for hover effects
-                    if (tab === 'wordpress') div.classList.add('wordpress-card');
-                    if (tab === 'webdev') div.classList.add('webdev-card');
-                    if (tab === 'graphic') div.classList.add('graphic-card');
-                    div.innerHTML = `<img src="${card.img}" alt="${card.title}"><h3>${card.title}</h3><a href="${card.link}">View Site</a>`;
-                    container.appendChild(div);
-                });
+        // --- Three.js Particles ---
+        let scene, camera, renderer, particles;
+        function init3D() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+            const pGeometry = new THREE.BufferGeometry();
+            const pVertices = [];
+            for (let i = 0; i < 1500; i++) {
+                pVertices.push(THREE.MathUtils.randFloatSpread(50), THREE.MathUtils.randFloatSpread(50), THREE.MathUtils.randFloatSpread(50));
             }
-
-            ['wordpress', 'webdev', 'graphic'].forEach(tab => renderTab(tab));
-        });
-    </script>
-    <!-- skills -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabButtons = document.querySelectorAll('.skills-tab-button');
-            const tabContents = document.querySelectorAll('.skills-tab-content');
-
-            tabButtons.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    tabButtons.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    const tab = btn.getAttribute('data-tab');
-                    tabContents.forEach(tc => {
-                        tc.classList.remove('active');
-                        if (tc.id === tab) tc.classList.add('active');
-                    });
-                });
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            let index = 0;
-            let slides = $(".text-slider p");
-
-            function showSlide() {
-                slides.hide().css("transform", "translateX(100%)");
-                slides.eq(index).show().css("transform", "translateX(0%)");
-
-                setTimeout(() => {
-                    slides.eq(index).css("transform", "translateX(-100%)");
-                    setTimeout(() => {
-                        index = (index + 1) % slides.length;
-                        showSlide();
-                    }, 1000);
-                }, 2000);
-            }
-
-            showSlide();
-        });
-    </script>
-    <!-- testimonial -->
-    <script>
-        const carousel = document.getElementById('testimonial-carousel');
-        let index = 0;
-
-        function rotateCarousel() {
-            const cardWidth = carousel.children[0].offsetWidth + 30; // card width + gap
-            index++;
-            if (index >= carousel.children.length) index = 0;
-            carousel.style.transform = `translateX(-${cardWidth * index}px)`;
+            pGeometry.setAttribute('position', new THREE.Float32BufferAttribute(pVertices, 3));
+            particles = new THREE.Points(pGeometry, new THREE.PointsMaterial({ color: 0xff4d4d, size: 0.1, transparent: true, opacity: 0.4 }));
+            scene.add(particles);
+            camera.position.z = 15;
         }
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.y += 0.001;
+            renderer.render(scene, camera);
+        }
+        init3D(); animate();
 
-        setInterval(rotateCarousel, 4000);
-
-
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Swiper(".testimonial-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+        });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new Swiper(".certificate-swiper", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 4000, // সার্টিফিকেটের জন্য সময় একটু বেশি দেওয়া হয়েছে
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true, // মাউস রাখলে স্লাইডার থেমে যাবে
+                },
+                navigation: {
+                    nextEl: ".cert-next",
+                    prevEl: ".cert-prev",
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                },
+            });
+        });
+    </script>
 </body>
 
 </html>
