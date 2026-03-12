@@ -191,6 +191,7 @@
             border-radius: 5px;
             transition: all 0.3s ease;
         }
+
     </style>
 </head>
 
@@ -202,8 +203,12 @@
 
     <nav class="fixed w-full z-50 px-4 md:px-12 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center glass p-4 rounded-2xl">
-            <span class="text-xl font-extrabold tracking-tighter text-primary uppercase">Arifine<span
-                    class="text-slate-400 dark:text-white">.dev</span></span>
+            <!-- Logo -->
+            <span class="text-xl font-extrabold tracking-tighter text-primary uppercase">
+                Arifine<span class="text-slate-400 dark:text-white">.dev</span>
+            </span>
+
+            <!-- Menu Links -->
             <div class="hidden lg:flex space-x-6 text-[10px] font-bold uppercase tracking-[0.2em] opacity-80">
                 <a href="#home" class="hover:text-primary transition magnetic-btn">Home</a>
                 <a href="#about" class="hover:text-primary transition magnetic-btn">About</a>
@@ -211,7 +216,18 @@
                 <a href="#projects" class="hover:text-primary transition magnetic-btn">Projects</a>
                 <a href="#contact" class="hover:text-primary transition magnetic-btn">Contact</a>
             </div>
-            <button id="theme-toggle" class="p-2.5 rounded-xl glass hover:border-primary magnetic-btn">🌓</button>
+
+            <!-- Right Side Buttons -->
+            <div class="flex items-center space-x-4">
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2.5 rounded-xl glass hover:border-primary magnetic-btn">🌓</button>
+
+                <!-- CV Button -->
+                <a href="/path/to/your-cv.pdf" target="_blank"
+                    class="bg-primary px-5  font-bold text-[10px] uppercase text-primary shadow-lg p-2.5 rounded-xl glass hover:border-primary magnetic-btn">
+                    My CV
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -264,9 +280,9 @@
     </div>
 
     <header id="home" class="relative min-h-screen flex items-center px-6 md:px-24 pt-20">
-        <div class="grid lg:grid-cols-2 gap-12 w-full items-center">
+        <div class="grid lg:grid-cols-2 gap-12 w-full items-center mt-16 md:mt-0">
             <div class="z-10 order-2 lg:order-1 reveal">
-                <h3 class="text-2xl font-black mb-2 opacity-90">HELLO I AM</h3>
+                <h3 class="text-2xl font-black mb-2 opacity-90">HELLO, I AM</h3>
                 <h1 class="text-5xl  font-black mb-6 leading-none text-primary"><span id="typed-text"></span>
                 </h1>
                 <p class="text-xs md:text-sm font-bold opacity-60 mb-10 uppercase tracking-widest leading-relaxed">
@@ -274,10 +290,10 @@
                     Address: Mithapukur, Barobazar, Kaligonj, Jhenaidah
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    
+
                     <a href="https://wa.me/8801766359998" target="_blank"
                         class="px-8 py-4 bg-primary text-white font-black rounded-xl shadow-xl hover:scale-105 transition-all uppercase tracking-widest text-xs">
-                       Hire Me
+                        Hire Me
                     </a>
                     <div class="mt-2 flex flex-col border-l-2 border-primary pl-4 text-[10px] font-bold opacity-70">
                         <span>+880 1766 359 998</span>
@@ -304,11 +320,13 @@
                         class="absolute -right-4 top-10 z-20 glass p-3 rounded-2xl flex items-center gap-3 shadow-2xl animate-bounce-slow">
                         <div
                             class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-xl shadow-inner">
-                            🏆
+                            💻
                         </div>
-                        <div>
-                            <p class="text-[10px] font-black uppercase text-primary leading-none">Best Design</p>
-                            <p class="text-[8px] font-bold opacity-60 uppercase">Award Winner</p>
+                        <div class="space-y-1">
+                            <p class="text-[10px] font-black uppercase text-primary leading-none">Laravel</p>
+                            <p class="text-[10px] font-black uppercase text-primary leading-none">WordPress</p>
+                            <p class="text-[10px] font-black uppercase text-primary leading-none">Graphic</p>
+                            <!-- <p class="text-[8px] font-bold opacity-60 uppercase">Award Winner</p> -->
                         </div>
                     </div>
 
@@ -353,7 +371,7 @@
         </div>
     </section>
 
-    <section id="experience" class="py-24 px-6 md:px-24 ">
+    <section id="experience" class="py-24 py-3 px-6 md:px-24 ">
         <div class="max-w-7xl mx-auto">
             <div class="section-header reveal">
                 <h2>Work Experience</h2>
@@ -545,7 +563,7 @@
         </div>
     </section>
 
-    <section id="projects" class="py-24 px-6 md:px-24">
+    <section id="projects" class="py-24 py-3 px-6 md:px-24">
         <div class="max-w-7xl mx-auto">
             <div class="section-header reveal">
                 <h2>Key Projects</h2>
@@ -711,7 +729,8 @@
             </div>
         </div>
     </section>
-    <section id="testimonials" class="py-24 px-6 md:px-24 overflow-hidden">
+
+    <section id="testimonials" class="py-24 py-3 px-6 md:px-24 overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="section-header reveal">
                 <h2>Client Testimonials</h2>
@@ -818,9 +837,7 @@
         </div>
     </section>
 
-
-
-    <section id="pricing" class="py-24 px-6 md:px-24 bg-slate-500/5">
+    <section id="pricing" class="py-24 px-6 md:px-24 ">
         <div class="max-w-7xl mx-auto">
             <div class="section-header reveal">
                 <h2>Choose Your Perfect Plan</h2>
@@ -926,8 +943,6 @@
             </div>
         </div>
     </section>
-
-
 
     <footer id="contact" class="relative pt-24 pb-12 px-6 md:px-24 overflow-hidden">
         <div
